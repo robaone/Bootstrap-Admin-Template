@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>       <html class="no-js lt-ie9 lt-ie8 lt-ie7">   <![endif]-->
-<!--[if IE 7]>          <html class="no-js lt-ie9 lt-ie8">          <![endif]-->
-<!--[if IE 8]>          <html class="no-js lt-ie9">                 <![endif]-->
+<!--[if lt IE 7]>        <html class="no-js lt-ie9 lt-ie8 lt-ie7">   <![endif]-->
+<!--[if IE 7]>            <html class="no-js lt-ie9 lt-ie8">          <![endif]-->
+<!--[if IE 8]>            <html class="no-js lt-ie9">                 <![endif]-->
 <!--[if gt IE 8]><!-->  <html class="no-js">                        <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Dashboard</title>
+        <title>Alterne Dashboard</title>
         <meta name="description" content="Metis: Bootstrap Responsive Admin Theme">
         <meta name="viewport" content="width=device-width">
-        <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.min.css">
         <link type="text/css" rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link type="text/css" rel="stylesheet" href="assets/css/style.css">
-        <link type="text/css" rel="stylesheet" href="assets/css/calendar.css">
-        
+        <link rel="stylesheet" type="text/css" href="assets/css/layout2.css"/>
+        <link type="text/css" rel="stylesheet" href="assets/css/calendar.css"/>
+
         <link rel="stylesheet" href="assets/css/theme.css">
 
+        <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <!--[if IE 7]>
+    
         <link type="text/css" rel="stylesheet" href="assets/css/font-awesome-ie7.min.css"/>
         <![endif]-->
-
-        <script src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!-- BEGIN WRAP -->
         <div id="wrap">
-
 
             <!-- BEGIN TOP BAR -->
             <div id="top">
@@ -42,7 +42,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </a>
-                            <a class="brand" href="index.html">Metis</a>
+                            <a class="brand" href="index.html">Metis <small class="text-info"><sup>1.0</sup></small></a>
                             <!-- .topnav -->
                             <div class="btn-toolbar topnav">
                                 <div class="btn-group">
@@ -119,10 +119,10 @@
 
                                 <form class="main-search">
                                     <input class="input-block-level" type="text" placeholder="Live search...">
-                                    <button id="searchBtn" type="submit" class="btn btn-inverse"><i class="icon-search"></i>
-                                    </button>
+                                    <button id="searchBtn" type="submit" class="btn btn-inverse"><i class="icon-search"></i></button>
                                 </form>
                             </div>
+
                         </div>
                     </div>
 
@@ -267,41 +267,41 @@
                             </div>
                             <hr>
                             <div class="tac">
-                                <a class="quick-btn" href="#">
+                                <a class="glyph" href="#">
                                     <i class="icon-bolt icon-2x"></i>
                                     <span>inverse</span>
                                     <span class="label label-inverse">2</span>
                                 </a>
-                                <a class="quick-btn" href="#">
+                                <a class="glyph" href="#">
                                     <i class="icon-check icon-2x"></i>
                                     <span>important</span>
                                     <span class="label label-important">2</span>
                                 </a>
-                                <a class="quick-btn" href="#">
+                                <a class="glyph" href="#">
                                     <i class="icon-building icon-2x"></i>
                                     <span>No Label</span>
                                 </a>
-                                <a class="quick-btn" href="#">
+                                <a class="glyph" href="#">
                                     <i class="icon-envelope icon-2x"></i>
                                     <span>success</span>
                                     <span class="label label-success">-456</span>
                                 </a>
-                                <a class="quick-btn" href="#">
+                                <a class="glyph" href="#">
                                     <i class="icon-signal icon-2x"></i>
                                     <span>warning</span>
                                     <span class="label label-warning">+25</span>
                                 </a>
-                                <a class="quick-btn" href="#">
+                                <a class="glyph" href="#">
                                     <i class="icon-external-link icon-2x"></i>
                                     <span>&pi;</span>
                                     <span class="label btn-metis-2">3.14159265</span>
                                 </a>
-                                <a class="quick-btn" href="#">
+                                <a class="glyph" href="#">
                                     <i class="icon-lemon icon-2x"></i>
                                     <span>&eacute;</span>
                                     <span class="label btn-metis-4">2.71828</span>
                                 </a>
-                                <a class="quick-btn" href="#">
+                                <a class="glyph" href="#">
                                     <i class="icon-glass icon-2x"></i>
                                     <span>&phi;</span>
                                     <span class="label btn-metis-3">1.618</span>
@@ -320,15 +320,12 @@
                                 <div class="span4">
                                     <div class="box">
                                         <div class="body">
-                                            <table class="table table-bordered table-condensed table-hovered sortableTable">
+                                            <table class="table table-condensed table-hovered sortableTable">
                                                 <thead>
                                                     <tr>
-                                                        <th>Country <i class="icon-sort"></i><i class="icon-sort-down"></i><i
-                                                                class="icon-sort-up"></i></th>
-                                                        <th>Visit <i class="icon-sort"></i><i class="icon-sort-down"></i><i
-                                                                class="icon-sort-up"></i></th>
-                                                        <th>Time <i class="icon-sort"></i><i class="icon-sort-down"></i><i
-                                                                class="icon-sort-up"></i></th>
+                                                        <th>Country <i class="icon-sort"></i><i class="icon-sort-down"></i><i class="icon-sort-up"></i></th>
+                                                        <th>Visit <i class="icon-sort"></i><i class="icon-sort-down"></i><i class="icon-sort-up"></i></th>
+                                                        <th>Time <i class="icon-sort"></i><i class="icon-sort-down"></i><i class="icon-sort-up"></i></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -375,7 +372,7 @@
                             </div>
                             <hr>
                             <div class="row-fluid">
-                                <div class="span8">
+                                <div class="span12">
                                     <div class="box">
                                         <header>
                                             <h5>Calendar</h5>
@@ -385,113 +382,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="span4">
-                                    <div class="box">
-                                        <header>
-                                            <div class="icons"><i class="icon-tags"></i></div>
-                                            <h5>Todos</h5>
-                                        </header>
-                                        <div class="block">
-                                            <table class="table table-striped">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>sdg</td>
-                                                        <td>dsfg</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>sdfg</td>
-                                                        <td>dfg</td>
-                                                    </tr>
-                                                    <tr class="success">
-                                                        <td>dsfg</td>
-                                                        <td>dfg</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>dfgh</td>
-                                                        <td>dfh</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>dfgh</td>
-                                                        <td>dfhg</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>ddfghdfgh</td>
-                                                        <td>dfh</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>dfh</td>
-                                                        <td>ddfhdh</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <!--BEGIN LATEST COMMENT-->
-                            <!-- .row-fluid -->
-                            <div class="row-fluid">
-                                <!-- .span6 -->
-                                <div class="span6">
-                                    <!-- .box -->
-                                    <div class="box comments">
-                                        <header>
-                                            <div class="icons">
-                                                <i class="icon-comments"></i>
-                                            </div>
-                                            <h5>Latest Comment</h5>
-                                        </header>
-                                        <!-- .body -->
-                                        <div class="body">
-                                            <div class="media">
-                                                <a href="#" class="pull-left">
-                                                    <img data-src="holder.js/64x64" class="media-object" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4nO2V0XKaUBRF8/+fckREJSYmirY2HWtJBxMnMtV2qCGFoL2/sPsAdRKjD62Q3WnPw3qBM2eWiwueGGPwP3PCFmCjAdgCbDQAW4CNBmALsNEAbAE2GoAtwEYDsAXYaAC2ABsNwBZgowHYAmw0AFuAjQZgC7DRAGwBNn8cYL28xsCtQ0QKOgiS5zObxQiN4n5zvPqr9h8VYB0OYYvA9m5xf2hu/RlvHAt2/fcFq95/ZIAVxi2BSBezx0Mza4RDG1bXx81b55lgNvdgiUA613gwBiadoisCkQvcJMfvrz7AwyecikDEQtOx8uNpuRgG0XYmmw9gSRPjVYboaldwg3CYH+1zP0RwKRCpoTdLS9pfdYDoPZzivXMnEYz5Bt/NhfvzDCa7g2cJar0ZHo3ZL7hZYNSQ7ftt9e+Qlbm/0gDxBG0RiLTw4T6/Fn908x/iLZFMzyDS3t47JBj7bhHAwVVU/v7qAvxYYGDtF6wPvyIJzp58uXfoBEiMgUlv0as9vV58D8raX2kAYxBP3D1H1MG7Ly9nXz6hBNOL/Eh7swjhqAERwakfl7T/FQIYs8HS76P16yk2LzEO072zu4Lfg3OI5O9wakz+d2YLRNoYR8fvf6UA/w4agC3ARgOwBdhoALYAGw3AFmCjAdgCbDQAW4CNBmALsNEAbAE2GoAtwEYDsAXYaAC2ABsNwBZgowHYAmw0AFuAzU+QYREQ9dxBOwAAAABJRU5ErkJggg==">
-                                                </a>
-                                                <div class="media-body">
-                                                    <div class="popover right">
-                                                        <div class="arrow"></div>
-                                                        <h3 class="popover-title">Popover right</h3>
-                                                        <div class="popover-content">
-                                                            <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="media">
-                                                <a href="#" class="pull-right">
-                                                    <img data-src="holder.js/64x64" class="media-object" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4nO2V0XKaUBRF8/+fckREJSYmirY2HWtJBxMnMtV2qCGFoL2/sPsAdRKjD62Q3WnPw3qBM2eWiwueGGPwP3PCFmCjAdgCbDQAW4CNBmALsNEAbAE2GoAtwEYDsAXYaAC2ABsNwBZgowHYAmw0AFuAjQZgC7DRAGwBNn8cYL28xsCtQ0QKOgiS5zObxQiN4n5zvPqr9h8VYB0OYYvA9m5xf2hu/RlvHAt2/fcFq95/ZIAVxi2BSBezx0Mza4RDG1bXx81b55lgNvdgiUA613gwBiadoisCkQvcJMfvrz7AwyecikDEQtOx8uNpuRgG0XYmmw9gSRPjVYboaldwg3CYH+1zP0RwKRCpoTdLS9pfdYDoPZzivXMnEYz5Bt/NhfvzDCa7g2cJar0ZHo3ZL7hZYNSQ7ftt9e+Qlbm/0gDxBG0RiLTw4T6/Fn908x/iLZFMzyDS3t47JBj7bhHAwVVU/v7qAvxYYGDtF6wPvyIJzp58uXfoBEiMgUlv0as9vV58D8raX2kAYxBP3D1H1MG7Ly9nXz6hBNOL/Eh7swjhqAERwakfl7T/FQIYs8HS76P16yk2LzEO072zu4Lfg3OI5O9wakz+d2YLRNoYR8fvf6UA/w4agC3ARgOwBdhoALYAGw3AFmCjAdgCbDQAW4CNBmALsNEAbAE2GoAtwEYDsAXYaAC2ABsNwBZgowHYAmw0AFuAzU+QYREQ9dxBOwAAAABJRU5ErkJggg==">
-                                                </a>
-                                                <div class="media-body">
-                                                    <div class="popover left">
-                                                        <div class="arrow"></div>
-                                                        <h3 class="popover-title">Popover right</h3>
-                                                        <div class="popover-content">
-                                                            <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /.body -->
-                                    </div>
-                                    <!-- /.box -->
-                                </div>
-                                <!-- /.span6 -->
-                                <!-- .span6 -->
-                                <div class="span6">
-                                    <!-- .box -->
-                                    <div class="box">
-                                        <header></header>
-                                        <!-- .body -->
-                                        <div class="body"></div>
-                                        <!-- /.body -->
-                                    </div>
-                                    <!-- /.box -->
-                                </div>
-                                <!-- /.span6 -->
-                            </div>
-                            <!-- /.row-fluid -->
-                            <!--END LATEST COMMENT-->
                         </div>
                         <!-- /.inner -->
                     </div>
@@ -500,7 +391,71 @@
                 <!-- /.outer -->
             </div>
             <!-- END CONTENT -->
+            <!-- #right -->
+            <div id="right">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="alert alert-error">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Warning!</strong> Best check yo self, you're not looking too good.
+                            </div>
+                            <!-- .well well-small -->
+                            <div class="well well-small dark">
+                                <ul class="unstyled">
+                                    <li>Visitor <span class="inlinesparkline pull-right">1,4,4,7,5,9,10</span></li>
+                                    <li>Online Visitor <span class="dynamicsparkline pull-right">Loading..</span></li>
+                                    <li>Popularity <span class="dynamicbar pull-right">Loading..</span></li>
+                                    <li>New Users <span class="inlinebar pull-right">1,3,4,5,3,5</span></li>
+                                </ul>
+                            </div>
+                            <!-- /.well well-small -->
+                            <!-- .well well-small -->
+                            <div class="well well-small dark">
+                                <button class="btn btn-block">Default</button>
+                                <button class="btn btn-primary btn-block">Primary</button>
+                                <button class="btn btn-info btn-block">Info</button>
+                                <button class="btn btn-success btn-block">Success</button>
+                                <button class="btn btn-danger btn-block">Danger</button>
+                                <button class="btn btn-warning btn-block">Warning</button>
+                                <button class="btn btn-inverse btn-block">Inverse</button>
+                                <button class="btn btn-metis-1 btn-block">btn-metis-1</button>
+                                <button class="btn btn-metis-2 btn-block">btn-metis-2</button>
+                                <button class="btn btn-metis-3 btn-block">btn-metis-3</button>
+                                <button class="btn btn-metis-4 btn-block">btn-metis-4</button>
+                                <button class="btn btn-metis-5 btn-block">btn-metis-5</button>
+                                <button class="btn btn-metis-6 btn-block">btn-metis-6</button>
+                            </div>
+                            <!-- /.well well-small -->
+                            <!-- .well well-small -->
+                            <div class="well well-small dark">
+                                <span>Default</span><span class="pull-right"><small>20%</small></span>
 
+                                <div class="progress progress-info mini">
+                                    <div class="bar" style="width: 20%"></div>
+                                </div>
+                                <span>Success</span><span class="pull-right"><small>40%</small></span>
+
+                                <div class="progress progress-success mini">
+                                    <div class="bar" style="width: 40%"></div>
+                                </div>
+                                <span>warning</span><span class="pull-right"><small>60%</small></span>
+
+                                <div class="progress progress-warning mini">
+                                    <div class="bar" style="width: 60%"></div>
+                                </div>
+                                <span>Danger</span><span class="pull-right"><small>80%</small></span>
+
+                                <div class="progress progress-danger mini">
+                                    <div class="bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /#right -->
 
             <!-- #push do not remove -->
             <div id="push"></div>
@@ -525,11 +480,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </div>
             <div class="modal-footer">
@@ -549,34 +500,26 @@
 
 
         <script src="assets/js/vendor/bootstrap.min.js"></script>
-
-        <script src="assets/js/lib/jquery.tablesorter.min.js"></script>
-
         <script src="assets/js/lib/jquery.mousewheel.js"></script>
+        <script src="assets/js/lib/jquery.cookie.js"></script>
         <script src="assets/js/lib/jquery.sparkline.min.js"></script>
         <script src="assets/js/lib/flot/jquery.flot.js"></script>
         <script src="assets/js/lib/flot/jquery.flot.pie.js"></script>
         <script src="assets/js/lib/flot/jquery.flot.selection.js"></script>
         <script src="assets/js/lib/flot/jquery.flot.resize.js"></script>
         <script src="assets/js/lib/fullcalendar.min.js"></script>
-
-
-
+        <script src="assets/js/lib/jquery.tablesorter.min.js"></script>
 
 
         <script src="assets/js/main.js"></script>
 
-        
-
         <script type="text/javascript">
             $(function() {
                 dashboard();
-
-                
             });
         </script>
-        
+
         <script type="text/javascript" src="assets/js/style-switcher.js"></script>
-        
+
     </body>
 </html>
