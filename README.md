@@ -1,4 +1,8 @@
-Bootstrap-Admin-Template
-========================
+Free Admin Template with Twitter Bootstrap
 
-Twitter Bootstrap Admin Template
+**Demo**
+http://demo.onokumus.com/metis/index.html
+
+##Licencing
+
+MIT
