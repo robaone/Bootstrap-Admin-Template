@@ -99,7 +99,7 @@
     						   rel="tooltip" data-placement="bottom" data-original-title="Show/Hide Menu">
     						   <i class="icon-sort"></i>
     						</a>
-    						
+    						<!-- The global search form -->
     						<form class="main-search">
     							<input class="input-block-level" type="text" placeholder="Live search..">
     							<button id="searchBtn" type="submit" class="btn btn-inverse"><i class="icon-search"></i></button>
@@ -113,6 +113,7 @@
     			<div class="container-fluid">
     				<div class="row-fluid">
     					<div class="span12">
+    						<!-- The title of the page -->
     						<h3><i class="icon-bookmark-empty"></i> Blank Page</h3>
     					</div>
     				</div>
@@ -121,6 +122,63 @@
     		<!-- ./main-bar -->
     	</header>
     	<!-- /.head -->
+    	
+    	<!-- #left -->
+    	<div id="left">
+    		<!-- .user-media -->
+    		<div class="media user-media hidden-phone">
+    			<a href="javascript:void(0)" class="user-link">
+    				<img src="micromonitor/assets/img/user.gif" alt="User" class="media-object img-polaroid user-img">
+    				<!-- Number label over user icon -->
+    				<span class="label user-label">16</span>
+    			</a>
+    			
+    			<div class="media-body hidden-tablet">
+    				<h5 class="media-heading">Archie</h5>
+    				<ul class="unstyled user-info">
+    					<li><a href="javascript:void(0)">[Username]</a></li>
+    					<li>Last Access : <br/>
+    						<small><i class="icon-calendar"></i> [accessdate]</small>
+    					</li>
+    				</ul>
+    			</div>
+    		</div>
+    		<!-- /.user-media -->
+    		<!-- #menu -->
+    		<ul id="menu" class="ustyled accordion collapse in">
+    			<li class="accordion-group">
+    				<a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#menuitem1-nav">
+    					<i class="icon-ellipsis-horizontal icon-large"></i> Menu Item 1 <span class="label label-inverse pull-right">2</span>
+    				</a>
+    				<ul class="collapse" id="menuitem1-nav">
+    					<li><a href="javascript:void(0)"><i class="icon-angle-right"></i> Sub item 1</a>
+    				</ul>
+    			</li>
+    		</ul>
+    	</div>
+    	<!-- /#left -->
+    	<!-- #content -->
+    	<div id="content" class="">
+    		<!-- .outer -->
+    		<div class="conteinter-fluid outer">
+    			<div class="row-fluid">
+    				<!-- .inner -->
+    				<div class="span12 inner">
+    					<!-- content is here -->
+    				</div>
+    				<!-- /.inner -->
+    			</div>
+    		</div>
+    		<!-- /.outer -->
+    	</div>
+    	<!-- /#content -->
+    	<!-- #push do not remove -->
+    	<div id="push"></div>
+    	<!-- /#push -->
+    	<div class="clearfix"></div>
+    	<div id="footer">
+    		<p>2013 &copy; Metis Admin</p>
+    	</div>
     </div>
     <script src="micromonitor/assets/js/vendor/jquery-1.9.1.min.js"></script>
     <script src="micromonitor/assets/js/vendor/jquery-migrate-1.1.1.min.js"></script>
