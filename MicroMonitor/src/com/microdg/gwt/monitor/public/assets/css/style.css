@@ -339,6 +339,10 @@ body.fixed .pattern-switcher {
   background: url("../img/pattern/green-fibers.png") repeat #444444;
   *zoom: 1;
 }
+.wrap {
+  background: url("../img/pattern/green-fibers.png") repeat #444444;
+  *zoom: 1;
+}
 #wrap:before,
 #wrap:after {
   display: table;
