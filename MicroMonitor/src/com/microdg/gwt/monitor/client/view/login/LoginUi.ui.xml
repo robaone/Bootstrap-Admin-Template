@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="micromonitor/assets/magic/magic.css" />
 		<div class="container">
 			<div class="text-center">
-				<img src="micromonitor/assets/img/logo.png" alt="Metis Logo" />
+				<h1>Admin Login</h1>
 			</div>
 			<div class="tab-content">
 				<div id="login" class="tab-pane active">
