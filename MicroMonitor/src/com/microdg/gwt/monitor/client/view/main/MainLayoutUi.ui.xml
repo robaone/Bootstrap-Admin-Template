@@ -7,6 +7,8 @@
 		}
 	</ui:style>
 	<g:HTMLPanel>
+		<link type="text/css" rel="stylesheet"	href="micromonitor/assets/css/style.css" />
+		<link rel="stylesheet" href="micromonitor/assets/css/theme.css"/>
 		<div>
 			<div id="wrap">
 				<div id="top">

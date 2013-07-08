@@ -1,5 +1,6 @@
 package com.microdg.gwt.monitor.client;
 
+import com.microdg.gwt.monitor.client.view.login.LoginUi;
 import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.dom.client.Document;
@@ -25,8 +26,24 @@ public class MicroMonitor implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	private MainLayoutUi layout;
+	private DockLayoutPanel mainLayout;
+	private LoginUi login;
 	public void onModuleLoad() {
 		
+		mainLayout = buildMainLayout();
+		login = buildLoginLayout();
+		RootLayoutPanel.get().add(login);
+		
+		/*
+		Document.get().getBody().appendChild(layout.getElement());
+		*/
+	}
+	private LoginUi buildLoginLayout() {
+		LoginUi login = new LoginUi();
+		login.setStyleName("");
+		return login;
+	}
+	private DockLayoutPanel buildMainLayout() {
 		layout = new MainLayoutUi();
 		layout.addStyleName("wrap");
 		layout.setHeight("100%");
@@ -36,10 +53,6 @@ public class MicroMonitor implements EntryPoint {
 		scrollPanel.addStyleName("wrap");
 		scrollPanel.add(layout);
 		appPanel.add(scrollPanel);
-		RootLayoutPanel.get().add(appPanel);
-		
-		/*
-		Document.get().getBody().appendChild(layout.getElement());
-		*/
+		return appPanel;
 	}
 }
