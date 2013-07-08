@@ -1,6 +1,8 @@
 package com.microdg.gwt.monitor.shared.dto;
 
-public class LoginInfoDTO {
+import com.google.gwt.user.client.rpc.IsSerializable;
+
+public class LoginInfoDTO implements IsSerializable{
 
 	private String m_username;
 	private String m_password;

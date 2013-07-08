@@ -12,6 +12,8 @@ import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
+import com.robaone.gwt.eventbus.client.EventBus;
+import com.robaone.gwt.eventbus.client.NativeChannelEvent;
 
 public class LoginUi extends Composite {
 
@@ -38,6 +40,7 @@ public class LoginUi extends Composite {
 		logininfo.setUsername(username_string);
 		logininfo.setPassword(password_string);
 		
-		
+		NativeChannelEvent event = new NativeChannelEvent("login",logininfo); 
+		EventBus.handleNativeEvent(event);
 	}
 }

@@ -43,7 +43,7 @@
 									</div>
 									<div class="btn-group">
 										<a class="btn btn-inverse" data-placement="bottom"
-											data-original-title="Logout" rel="tooltip" href="javascript:void(0)">
+											data-original-title="Logout" rel="tooltip" href="javascript:Rolib.eventbus.handleEvent('logout',{});">
 											<i class="icon-off"></i>
 										</a>
 									</div>
