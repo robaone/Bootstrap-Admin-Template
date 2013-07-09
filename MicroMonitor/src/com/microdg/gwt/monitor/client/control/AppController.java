@@ -18,11 +18,27 @@ public class AppController extends EventDrivenController {
 	@Override
 	public void handleEvent(String command, Widget message) {
 		System.out.println("AppController: "+command);
+		ApplicationComposeEventHandler handler = ApplicationComposeEventFactory.newInstance(this.getChannel());
+		if(handler != null){
+			try{
+				handler.handle(command,message);
+			}catch(Exception e){
+				
+			}
+		}
 	}
 
 	@Override
 	public void handleEvent(String command, Widget[] messages) {
 		System.out.println("AppController: "+command);
+		ApplicationComposeEventHandler handler = ApplicationComposeEventFactory.newInstance(this.getChannel());
+		if(handler != null){
+			try{
+				handler.handle(command,messages);
+			}catch(Exception e){
+				
+			}
+		}
 	}
 
 	@Override
