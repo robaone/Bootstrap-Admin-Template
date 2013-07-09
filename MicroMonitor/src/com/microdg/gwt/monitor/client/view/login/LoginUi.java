@@ -5,7 +5,6 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.PasswordTextBox;
@@ -26,11 +25,23 @@ public class LoginUi extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		username.getElement().setAttribute("placeholder", "Username");
 		password.getElement().setAttribute("placeholder", "Password");
+		email.getElement().setAttribute("placeholder","mail@domain.com");
+		email.getElement().setAttribute("required","required");
+		recoverPassword.getElement().setAttribute("placeholder", "mail@domain.com");
+		registerUsername.getElement().setAttribute("placeholder", "username");
+		registerEmail.getElement().setAttribute("placeholder", "mail@domain.com");
+		registerPassword.getElement().setAttribute("placeholder", "password");
 	}
 
 	@UiField TextBox username;
 	@UiField PasswordTextBox password;
 	@UiField Button submit;
+	@UiField TextBox email;
+	@UiField Button recoverPassword;
+	@UiField TextBox registerUsername;
+	@UiField TextBox registerEmail;
+	@UiField PasswordTextBox registerPassword;
+	@UiField Button registerSubmit;
 	
 	@UiHandler("submit")
 	void onClick(ClickEvent e){
@@ -41,6 +52,30 @@ public class LoginUi extends Composite {
 		logininfo.setPassword(password_string);
 		
 		NativeChannelEvent event = new NativeChannelEvent("login",logininfo); 
+		EventBus.handleNativeEvent(event);
+	}
+
+	@UiHandler("recoverPassword")
+	void onRecoverClick(ClickEvent e){
+		String email_string = email.getText();
+		LoginInfoDTO logininfo = new LoginInfoDTO();
+		logininfo.setEmail(email_string);
+		
+		NativeChannelEvent event = new NativeChannelEvent("recover-password",logininfo); 
+		EventBus.handleNativeEvent(event);
+	}
+
+	@UiHandler("registerSubmit")
+	void onRegisterClick(ClickEvent e){
+		String email_string = registerEmail.getText();
+		String username_string = registerUsername.getText();
+		String password_string = registerPassword.getText();
+		LoginInfoDTO logininfo = new LoginInfoDTO();
+		logininfo.setEmail(email_string);
+		logininfo.setPassword(password_string);
+		logininfo.setUsername(username_string);
+		
+		NativeChannelEvent event = new NativeChannelEvent("register-user",logininfo); 
 		EventBus.handleNativeEvent(event);
 	}
 }

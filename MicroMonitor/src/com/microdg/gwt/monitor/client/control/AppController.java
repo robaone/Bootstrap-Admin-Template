@@ -30,7 +30,11 @@ public class AppController extends EventDrivenController {
 	public void handleEvent(JavaScriptObject message) {
 		System.out.println("AppController: "+message.toString());
 		ApplicationEventHandler handler = ApplicationEventFactory.newInstance(this.getChannel());
-		handler.handle(message);
+		if(handler != null){
+			try{
+				handler.handle(message);
+			}catch(Exception e){}
+		}
 	}
 
 	@Override
@@ -38,7 +42,9 @@ public class AppController extends EventDrivenController {
 		System.out.println("AppController: "+message.getClass().getName());
 		ApplicationEventHandler handler = ApplicationEventFactory.newInstance(this.getChannel());
 		if(handler != null){
-			handler.handle(message);
+			try{
+				handler.handle(message);
+			}catch(Exception e){}
 		}
 	}
 	private String getChannel() {

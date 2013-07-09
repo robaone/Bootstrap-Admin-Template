@@ -11,7 +11,7 @@ public class ApplicationLoginResultHandler implements ApplicationEventHandler {
 		try{
 			Boolean result = (Boolean)message;
 			if(result.booleanValue()){
-				EventBus.handleEvent("main-layout", ComposeEvent.REPLACE, MicroMonitor.getMainLayout());
+				EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayout());
 			}
 		}catch(Exception e){
 			e.printStackTrace();

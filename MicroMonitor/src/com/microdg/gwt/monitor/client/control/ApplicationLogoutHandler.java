@@ -19,7 +19,7 @@ public class ApplicationLogoutHandler implements ApplicationEventHandler {
 
 			@Override
 			public void onSuccess(Boolean result) {
-				EventBus.handleEvent("main-layout", ComposeEvent.REPLACE, MicroMonitor.getLoginPage());
+				EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getLoginPage());
 			}
 			
 		});

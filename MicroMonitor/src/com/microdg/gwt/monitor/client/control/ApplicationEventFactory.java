@@ -9,6 +9,8 @@ public class ApplicationEventFactory {
 			return new ApplicationLoginResultHandler();
 		}else if("logout".equals(channel)){
 			return new ApplicationLogoutHandler();
+		}else if("set-brand".equals(channel)){
+			return new ApplicationBrandHandler();
 		}
 		return null;
 	}

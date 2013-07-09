@@ -6,6 +6,7 @@ public class LoginInfoDTO implements IsSerializable{
 
 	private String m_username;
 	private String m_password;
+	private String m_email;
 
 	public void setUsername(String username_string) {
 		this.m_username = username_string;
@@ -21,5 +22,13 @@ public class LoginInfoDTO implements IsSerializable{
 	
 	public String getPassword(){
 		return this.m_password;
+	}
+
+	public void setEmail(String email_string) {
+		this.m_email = email_string;
+	}
+	
+	public String getEmail() {
+		return this.m_email;
 	}
 }

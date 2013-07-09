@@ -31,12 +31,12 @@ public class MicroMonitor  extends EventDrivenController implements EntryPoint {
 	/**
 	 * This is the entry point method.
 	 */
-	private MainLayoutUi layout;
+	private static MainLayoutUi layout;
 	private static DockLayoutPanel mainLayout;
 	private static LoginUi login;
 	private AppController controller;
 	public void onModuleLoad() {
-		this.setChannels("main-layout");
+		this.setChannels("root");
 		bind();
 		
 		mainLayout = buildMainLayout();
@@ -44,12 +44,12 @@ public class MicroMonitor  extends EventDrivenController implements EntryPoint {
 		initAppController();
 		RootLayoutPanel.get().add(login);
 		
-		/*
-		Document.get().getBody().appendChild(layout.getElement());
-		*/
 	}
 	public static Widget getMainLayout(){
 		return mainLayout;
+	}
+	public static MainLayoutUi getMainLayoutUi(){
+		return layout;
 	}
 	private void initAppController() {
 		controller = new AppController();
