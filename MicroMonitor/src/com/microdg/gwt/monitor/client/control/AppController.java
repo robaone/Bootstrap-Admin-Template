@@ -1,7 +1,6 @@
 package com.microdg.gwt.monitor.client.control;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
 
@@ -19,11 +18,27 @@ public class AppController extends EventDrivenController {
 	@Override
 	public void handleEvent(String command, Widget message) {
 		System.out.println("AppController: "+command);
+		ApplicationComposeEventHandler handler = ApplicationComposeEventFactory.newInstance(this.getChannel());
+		if(handler != null){
+			try{
+				handler.handle(command,message);
+			}catch(Exception e){
+				
+			}
+		}
 	}
 
 	@Override
 	public void handleEvent(String command, Widget[] messages) {
 		System.out.println("AppController: "+command);
+		ApplicationComposeEventHandler handler = ApplicationComposeEventFactory.newInstance(this.getChannel());
+		if(handler != null){
+			try{
+				handler.handle(command,messages);
+			}catch(Exception e){
+				
+			}
+		}
 	}
 
 	@Override
@@ -32,7 +47,7 @@ public class AppController extends EventDrivenController {
 		ApplicationEventHandler handler = ApplicationEventFactory.newInstance(this.getChannel());
 		if(handler != null){
 			try{
-				handler.handle(message);
+				handler.handleJs(message);
 			}catch(Exception e){}
 		}
 	}

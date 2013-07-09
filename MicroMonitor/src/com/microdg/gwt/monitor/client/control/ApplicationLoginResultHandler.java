@@ -1,5 +1,6 @@
 package com.microdg.gwt.monitor.client.control;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.microdg.gwt.monitor.client.MicroMonitor;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
@@ -16,6 +17,12 @@ public class ApplicationLoginResultHandler implements ApplicationEventHandler {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void handleJs(JavaScriptObject message) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

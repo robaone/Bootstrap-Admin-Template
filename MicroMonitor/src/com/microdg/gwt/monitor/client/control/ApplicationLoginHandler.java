@@ -1,5 +1,6 @@
 package com.microdg.gwt.monitor.client.control;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.MicroMonitor;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
@@ -23,6 +24,12 @@ public class ApplicationLoginHandler implements ApplicationEventHandler {
 			}
 			
 		});
+	}
+
+	@Override
+	public void handleJs(JavaScriptObject message) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
