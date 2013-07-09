@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class MainLayoutUi extends Composite {
@@ -24,6 +25,7 @@ public class MainLayoutUi extends Composite {
 	@UiField InlineLabel accounttype;
 	@UiField InlineLabel lastAccessDate;
 	@UiField Image profileImage;
+	@UiField SimplePanel content;
 	
 	public MainLayoutUi() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -53,5 +55,8 @@ public class MainLayoutUi extends Composite {
 	}
 	public void setProfileImage(String url) {
 		profileImage.setUrl(url);
+	}
+	public SimplePanel getContentPanel() {
+		return this.content;
 	}
 }

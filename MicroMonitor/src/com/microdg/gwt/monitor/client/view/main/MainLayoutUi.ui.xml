@@ -170,9 +170,7 @@
 					<div class="container-fluid outer">
 						<div class="row-fluid">
 							<!-- .inner -->
-							<div class="span12 inner">
-								<!-- content is here -->
-							</div>
+							<g:SimplePanel ui:field="content" styleName="span12 inner"></g:SimplePanel>
 							<!-- /.inner -->
 						</div>
 					</div>
