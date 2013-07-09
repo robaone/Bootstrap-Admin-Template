@@ -13,6 +13,8 @@ public class ApplicationEventFactory {
 			return new ApplicationBrandHandler();
 		}else if("set-page-name".equals(channel)){
 			return new ApplicationPageNameHandler();
+		}else if("set-profile".equals(channel)){
+			return new ApplicationProfileHandler();
 		}
 		return null;
 	}

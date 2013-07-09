@@ -5,6 +5,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -18,9 +19,16 @@ public class MainLayoutUi extends Composite {
 
 	@UiField Anchor brand;
 	@UiField InlineLabel pagename;
+	@UiField InlineLabel userAlertCount;
+	@UiField InlineLabel username;
+	@UiField InlineLabel accounttype;
+	@UiField InlineLabel lastAccessDate;
+	@UiField Image profileImage;
 	
 	public MainLayoutUi() {
 		initWidget(uiBinder.createAndBindUi(this));
+		profileImage.setAltText("User");
+		profileImage.setUrl("micromonitor/assets/img/user.gif");
 	}
 	public void setBrand(String string) {
 		this.brand.setText(string);
@@ -28,5 +36,22 @@ public class MainLayoutUi extends Composite {
 	public void setPageName(String string) {
 		pagename.setText(string);
 	}
-
+	public void setUsername(String name) {
+		username.setText(name);
+	}
+	public void setAccountType(String type) {
+		accounttype.setText(type);
+	}
+	public void setUserAlertCount(String count) {
+		userAlertCount.setText(count);
+	}
+	public void setUserAlertCount(int count) {
+		setUserAlertCount(""+count);
+	}
+	public void setLastAccessDate(String date) {
+		lastAccessDate.setText(date);
+	}
+	public void setProfileImage(String url) {
+		profileImage.setUrl(url);
+	}
 }

@@ -121,23 +121,22 @@
 					<!-- .user-media -->
 					<div class="media user-media hidden-phone">
 						<a href="javascript:void(0)" class="user-link">
-							<img src="micromonitor/assets/img/user.gif" alt="User"
-								class="media-object img-polaroid user-img"></img> <!-- Number label over user icon -->
-							<span class="label user-label">16</span>
+							<g:Image ui:field="profileImage" styleName="media-object img-polaroid user-img"/>
+							<span class="label user-label"><g:InlineLabel ui:field="userAlertCount" /></span>
 						</a>
 
 						<div class="media-body hidden-tablet">
-							<h5 class="media-heading">[Username]</h5>
+							<h5 class="media-heading"><g:InlineLabel ui:field="username"/></h5>
 							<ul class="unstyled user-info">
 								<li>
-									<a href="javascript:void(0)">[Account type]</a>
+									<a href="javascript:void(0)"><g:InlineLabel ui:field="accounttype"/></a>
 								</li>
 								<li>
 									Last Access :
 									<br />
 									<small>
 										<i class="icon-calendar"></i>
-										[accessdate]
+										<g:InlineLabel ui:field="lastAccessDate"/>
 									</small>
 								</li>
 							</ul>
