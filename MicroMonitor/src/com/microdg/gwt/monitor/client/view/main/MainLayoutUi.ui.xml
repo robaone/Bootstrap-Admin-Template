@@ -106,7 +106,7 @@
 									<!-- The title of the page -->
 									<h3>
 										<i class="icon-bookmark-empty"></i>
-										Blank Page
+										<g:InlineLabel ui:field="pagename" />
 									</h3>
 								</div>
 							</div>
