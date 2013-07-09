@@ -21,25 +21,40 @@ import com.google.gwt.user.client.rpc.IsSerializable;
  *
  */
 public class UserProfileDTO implements IsSerializable {
-
+	private java.util.Date lastaccessed;
+	private String username;
+	private String accounttype;
+	private String profileimageurl;
+	
 	public java.util.Date getLastAccessDate() {
-		// TODO Auto-generated method stub
-		return null;
+		return lastaccessed;
+	}
+	
+	public void setLastAccessDate(java.util.Date date){
+		this.lastaccessed = date;
 	}
 
 	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
+		return username;
+	}
+	
+	public void setUsername(String username){
+		this.username = username;
 	}
 
 	public String getAccountType() {
-		// TODO Auto-generated method stub
-		return null;
+		return accounttype;
 	}
 
+	public void setAccountType(String accounttype){
+		this.accounttype = accounttype;
+	}
 	public String getProfileImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return profileimageurl;
+	}
+	
+	public void setProfileImage(String url){
+		this.profileimageurl = url;
 	}
 
 }
