@@ -1,10 +1,14 @@
 package com.microdg.gwt.monitor.client.control;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.web.bindery.event.shared.Event.Type;
+import com.robaone.gwt.eventbus.client.EventBusConstants;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
+import com.robaone.gwt.eventbus.client.NativeMessageHandler;
 
-public class AppController extends EventDrivenController {
+public class AppController extends EventDrivenController<GwtEvent.Type<NativeMessageHandler<String>>,Object> {
 	private String m_channel;
 	public AppController(){
 		this.bind();
@@ -64,6 +68,10 @@ public class AppController extends EventDrivenController {
 	}
 	private String getChannel() {
 		return this.m_channel;
+	}
+	@Override
+	protected Type<NativeMessageHandler<Object>> getNativeEventType() {
+		return EventBusConstants.OBJECT_TYPE;
 	}
 
 }

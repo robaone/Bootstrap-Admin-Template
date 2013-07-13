@@ -6,22 +6,26 @@ import com.microdg.gwt.monitor.client.rpc.DataServiceAsync;
 import com.microdg.gwt.monitor.client.view.login.LoginUi;
 import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
+import com.robaone.gwt.eventbus.client.EventBusConstants;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
+import com.robaone.gwt.eventbus.client.NativeMessageHandler;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.web.bindery.event.shared.Event.Type;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class MicroMonitor  extends EventDrivenController implements EntryPoint {
+public class MicroMonitor extends EventDrivenController<GwtEvent.Type<NativeMessageHandler<String>>,String> implements EntryPoint {
 	/**
 	 * The message displayed to the user when the server cannot be reached or
 	 * returns an error.
@@ -89,11 +93,15 @@ public class MicroMonitor  extends EventDrivenController implements EntryPoint {
 		
 	}
 	@Override
-	public void handleNativeEvent(Object message) {
+	public void handleNativeEvent(String message) {
 		// TODO Auto-generated method stub
 		
 	}
 	public static Widget getLoginPage() {
 		return login;
+	}
+	@Override
+	protected Type<NativeMessageHandler<String>> getNativeEventType() {
+		return EventBusConstants.STRING_TYPE;
 	}
 }

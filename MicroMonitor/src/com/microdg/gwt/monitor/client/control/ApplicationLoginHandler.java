@@ -1,29 +1,15 @@
 package com.microdg.gwt.monitor.client.control;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.MicroMonitor;
+import com.microdg.gwt.monitor.client.control.login.LoginCallback;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
-import com.robaone.gwt.eventbus.client.EventBus;
-import com.robaone.gwt.eventbus.client.NativeChannelEvent;
 
-public class ApplicationLoginHandler implements ApplicationEventHandler {
-
+public class ApplicationLoginHandler implements ApplicationEventHandler<LoginInfoDTO> {
+	
 	@Override
-	public void handle(Object message) {
-		MicroMonitor.dataService.login((LoginInfoDTO)message, new AsyncCallback<Boolean>(){
-
-			@Override
-			public void onFailure(Throwable caught) {
-				EventBus.handleNativeEvent(new NativeChannelEvent("login-error","Login Failed"));
-			}
-
-			@Override
-			public void onSuccess(Boolean result) {
-				EventBus.handleNativeEvent(new NativeChannelEvent("login-result",result));
-			}
-			
-		});
+	public void handle(LoginInfoDTO message) {
+		MicroMonitor.dataService.login(message, new LoginCallback());
 	}
 
 	@Override
