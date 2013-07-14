@@ -1,18 +1,17 @@
 package com.microdg.gwt.monitor.client.control.login;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.microdg.gwt.monitor.client.events.BooleanEvent;
-import com.microdg.gwt.monitor.client.events.StringEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
+import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 
 public class LoginCallback implements AsyncCallback<Boolean> {
 	@Override
 	public void onFailure(Throwable caught) {
-		EventBus.handleNativeEvent(new StringEvent("login-error","Login Failed"));
+		EventBus.handleObjectEvent(new ObjectChannelEvent("login-error","Login Failed"));
 	}
 
 	@Override
 	public void onSuccess(Boolean result) {
-		EventBus.handleNativeEvent(new BooleanEvent("login-result",result));
+		EventBus.handleObjectEvent(new ObjectChannelEvent("login-result",result));
 	}
 }

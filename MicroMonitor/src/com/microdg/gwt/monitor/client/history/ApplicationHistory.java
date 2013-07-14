@@ -8,9 +8,9 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.Event.Type;
 import com.robaone.gwt.eventbus.client.EventBusConstants;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
-import com.robaone.gwt.eventbus.client.NativeMessageHandler;
+import com.robaone.gwt.eventbus.client.ObjectMessageHandler;
 
-public class ApplicationHistory extends EventDrivenController<GwtEvent.Type<NativeMessageHandler<String>>,String> implements
+public class ApplicationHistory extends EventDrivenController implements
 		ValueChangeHandler<String> {
 
 	@Override
@@ -38,13 +38,8 @@ public class ApplicationHistory extends EventDrivenController<GwtEvent.Type<Nati
 	}
 
 	@Override
-	public void handleNativeEvent(String message) {
+	public void handleObjectEvent(Object message) {
 		System.out.println("ApplicationHistory: "+message);
-	}
-
-	@Override
-	protected Type<NativeMessageHandler<String>> getNativeEventType() {
-		return EventBusConstants.STRING_TYPE;
 	}
 
 }

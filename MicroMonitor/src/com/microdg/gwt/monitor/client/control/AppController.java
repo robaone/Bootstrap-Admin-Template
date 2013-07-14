@@ -6,9 +6,9 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.Event.Type;
 import com.robaone.gwt.eventbus.client.EventBusConstants;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
-import com.robaone.gwt.eventbus.client.NativeMessageHandler;
+import com.robaone.gwt.eventbus.client.ObjectMessageHandler;
 
-public class AppController extends EventDrivenController<GwtEvent.Type<NativeMessageHandler<String>>,Object> {
+public class AppController extends EventDrivenController {
 	private String m_channel;
 	public AppController(){
 		this.bind();
@@ -57,7 +57,7 @@ public class AppController extends EventDrivenController<GwtEvent.Type<NativeMes
 	}
 
 	@Override
-	public void handleNativeEvent(Object message) {
+	public void handleObjectEvent(Object message) {
 		System.out.println("AppController: "+message.getClass().getName());
 		ApplicationEventHandler handler = ApplicationEventFactory.newInstance(this.getChannel());
 		if(handler != null){
@@ -68,10 +68,6 @@ public class AppController extends EventDrivenController<GwtEvent.Type<NativeMes
 	}
 	private String getChannel() {
 		return this.m_channel;
-	}
-	@Override
-	protected Type<NativeMessageHandler<Object>> getNativeEventType() {
-		return EventBusConstants.OBJECT_TYPE;
 	}
 
 }
