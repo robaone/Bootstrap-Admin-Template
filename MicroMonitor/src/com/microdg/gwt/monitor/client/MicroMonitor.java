@@ -1,6 +1,7 @@
 package com.microdg.gwt.monitor.client;
 
 import com.microdg.gwt.monitor.client.control.AppController;
+import com.microdg.gwt.monitor.client.history.ApplicationHistory;
 import com.microdg.gwt.monitor.client.rpc.DataService;
 import com.microdg.gwt.monitor.client.rpc.DataServiceAsync;
 import com.microdg.gwt.monitor.client.view.login.LoginUi;
@@ -17,6 +18,7 @@ import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
@@ -48,8 +50,7 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 		mainLayout = buildMainLayout();
 		login = buildLoginLayout();
 		initAppController();
-		EventBus.handleObjectEvent(new ObjectChannelEvent("initialize","App"));
-	
+		
 		
 	}
 	public static Widget getMainLayout(){
@@ -60,6 +61,9 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	}
 	private void initAppController() {
 		controller = new AppController();
+		ApplicationHistory history = new ApplicationHistory();
+		History.addValueChangeHandler(history);
+		history.handleObjectEvent(History.getToken());
 	}
 	private LoginUi buildLoginLayout() {
 		LoginUi login = new LoginUi();

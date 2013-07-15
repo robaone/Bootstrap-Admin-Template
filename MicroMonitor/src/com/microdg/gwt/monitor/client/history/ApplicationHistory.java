@@ -6,8 +6,10 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.Event.Type;
+import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.EventBusConstants;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
+import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 import com.robaone.gwt.eventbus.client.ObjectMessageHandler;
 
 public class ApplicationHistory extends EventDrivenController implements
@@ -40,6 +42,8 @@ public class ApplicationHistory extends EventDrivenController implements
 	@Override
 	public void handleObjectEvent(Object message) {
 		System.out.println("ApplicationHistory: "+message);
+		EventBus.handleObjectEvent(new ObjectChannelEvent("initialize","App"));
+		
 	}
 
 }
