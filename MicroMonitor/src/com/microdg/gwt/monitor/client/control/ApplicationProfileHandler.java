@@ -1,9 +1,9 @@
 package com.microdg.gwt.monitor.client.control;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.microdg.gwt.monitor.client.MicroMonitor;
 import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
 import com.microdg.gwt.monitor.shared.dto.UserProfileDTO;
@@ -27,9 +27,9 @@ import com.microdg.gwt.monitor.shared.dto.UserProfileDTO;
  *
  */
 public class ApplicationProfileHandler implements ApplicationEventHandler {
-	SimpleDateFormat df;
+	DateTimeFormat df;
 	public ApplicationProfileHandler(){
-		df = new SimpleDateFormat("MM/dd/yy hh:mm a");
+		df = DateTimeFormat.getFormat("MM/dd/yy hh:mm a");
 	}
 	@Override
 	public void handle(Object message) {
