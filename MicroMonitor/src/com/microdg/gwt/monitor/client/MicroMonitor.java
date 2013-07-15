@@ -6,8 +6,10 @@ import com.microdg.gwt.monitor.client.rpc.DataServiceAsync;
 import com.microdg.gwt.monitor.client.view.login.LoginUi;
 import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
+import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.EventBusConstants;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
+import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 import com.robaone.gwt.eventbus.client.ObjectMessageHandler;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -46,7 +48,8 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 		mainLayout = buildMainLayout();
 		login = buildLoginLayout();
 		initAppController();
-		RootLayoutPanel.get().add(login);
+		EventBus.handleObjectEvent(new ObjectChannelEvent("initialize","App"));
+	
 		
 	}
 	public static Widget getMainLayout(){

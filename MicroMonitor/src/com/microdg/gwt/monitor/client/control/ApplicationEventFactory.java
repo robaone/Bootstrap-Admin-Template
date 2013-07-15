@@ -3,7 +3,9 @@ package com.microdg.gwt.monitor.client.control;
 public class ApplicationEventFactory {
 
 	public static ApplicationEventHandler newInstance(String channel) {
-		if("login".equals(channel)){
+		if("initialize".equals(channel)){
+			return new ApplicationInitializeHandler();
+		}else if("login".equals(channel)){
 			return new ApplicationLoginHandler();
 		}else if("login-result".equals(channel)){
 			return new ApplicationLoginResultHandler();

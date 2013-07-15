@@ -2,6 +2,8 @@ package com.microdg.gwt.monitor.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.microdg.gwt.monitor.client.rpc.DataService;
+import com.microdg.gwt.monitor.shared.SimpleException;
+import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 
 public class DataServiceImpl extends RemoteServiceServlet implements DataService {
@@ -18,6 +20,12 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 	public boolean logout() {
 		LogoutHandlerTemplate handler = HandlerFactory.newLogoutHandler();
 		return handler.logout();
+	}
+
+	@Override
+	public AppSessionDataDTO getSessionData() throws SimpleException {
+		AppSessionHandlerTemplace handler = HandlerFactory.newAppSessionHandler();
+		return handler.getSessionData();
 	}
 
 }
