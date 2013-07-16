@@ -1,5 +1,6 @@
 package com.microdg.gwt.monitor.client.callback;
 
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.MicroMonitor;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
@@ -34,9 +35,8 @@ public class InitilizeCalback implements AsyncCallback<AppSessionDataDTO> {
 
 	@Override
 	public void onSuccess(AppSessionDataDTO result) {
-		EventBus.handleObjectEvent(new ObjectChannelEvent("set-profile",result.getProfile()));
-		EventBus.handleObjectEvent(new ObjectChannelEvent("set-brand",result.getBrand()));
-		EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
+		MicroMonitor.setAppSessionData(result);
+		EventBus.handleObjectEvent(new ObjectChannelEvent("history",History.getToken()));
 	}
 
 }

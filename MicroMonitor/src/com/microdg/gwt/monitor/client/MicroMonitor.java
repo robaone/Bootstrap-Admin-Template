@@ -6,6 +6,7 @@ import com.microdg.gwt.monitor.client.rpc.DataService;
 import com.microdg.gwt.monitor.client.rpc.DataServiceAsync;
 import com.microdg.gwt.monitor.client.view.login.LoginUi;
 import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
+import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.EventBusConstants;
@@ -50,6 +51,7 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 		mainLayout = buildMainLayout();
 		login = buildLoginLayout();
 		initAppController();
+		EventBus.handleObjectEvent(new ObjectChannelEvent("initialize","App"));
 		
 		
 	}
@@ -106,6 +108,10 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	}
 	public static Widget getLoginPage() {
 		return login;
+	}
+	public static void setAppSessionData(AppSessionDataDTO result) {
+		EventBus.handleObjectEvent(new ObjectChannelEvent("set-profile",result.getProfile()));
+		EventBus.handleObjectEvent(new ObjectChannelEvent("set-brand",result.getBrand()));
 	}
 
 }

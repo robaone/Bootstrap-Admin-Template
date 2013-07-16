@@ -6,6 +6,8 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.Event.Type;
+import com.microdg.gwt.monitor.client.MicroMonitor;
+import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.EventBusConstants;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
@@ -14,11 +16,12 @@ import com.robaone.gwt.eventbus.client.ObjectMessageHandler;
 
 public class ApplicationHistory extends EventDrivenController implements
 		ValueChangeHandler<String> {
-
+	public ApplicationHistory(){
+		bind();
+	}
 	@Override
 	public void onValueChange(ValueChangeEvent<String> event) {
-		// TODO Auto-generated method stub
-
+		this.handleObjectEvent(event.getValue());
 	}
 
 	@Override
@@ -42,8 +45,13 @@ public class ApplicationHistory extends EventDrivenController implements
 	@Override
 	public void handleObjectEvent(Object message) {
 		System.out.println("ApplicationHistory: "+message);
-		EventBus.handleObjectEvent(new ObjectChannelEvent("initialize","App"));
-		
+		if("".equals(message.toString()) || "home".equalsIgnoreCase(message.toString())){
+			EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
+			EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Home"));
+		}else if("settings".equals(message.toString())){
+			EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
+			EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Settings"));
+		}
 	}
 
 }
