@@ -9,23 +9,18 @@ import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
-import com.robaone.gwt.eventbus.client.EventBusConstants;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
 import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
-import com.robaone.gwt.eventbus.client.ObjectMessageHandler;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.shared.GWT;
-import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style.Unit;
-import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.web.bindery.event.shared.Event.Type;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -43,6 +38,7 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	private static MainLayoutUi layout;
 	private static DockLayoutPanel mainLayout;
 	private static LoginUi login;
+	@SuppressWarnings("unused")
 	private AppController controller;
 	public void onModuleLoad() {
 		this.setChannels("root");
