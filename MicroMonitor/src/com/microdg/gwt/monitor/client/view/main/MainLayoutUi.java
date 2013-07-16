@@ -31,6 +31,7 @@ public class MainLayoutUi extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		profileImage.setAltText("User");
 		profileImage.setUrl("micromonitor/assets/img/user.gif");
+		brand.setHref("#home");
 	}
 	public void setBrand(String string) {
 		this.brand.setText(string);

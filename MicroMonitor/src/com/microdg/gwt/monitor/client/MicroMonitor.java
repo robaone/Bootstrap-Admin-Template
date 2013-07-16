@@ -87,8 +87,10 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	@Override
 	public void handleEvent(String command, Widget message) {
 		if(ComposeEvent.REPLACE.equals(command)){
-			RootLayoutPanel.get().clear();
-			RootLayoutPanel.get().add(message);
+			if(RootLayoutPanel.get().getWidgetCount() == 0 || !RootLayoutPanel.get().getWidget(0).equals(message)){
+				RootLayoutPanel.get().clear();
+				RootLayoutPanel.get().add(message);
+			}
 		}
 	}
 	@Override

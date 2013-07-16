@@ -7,6 +7,7 @@ import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.Event.Type;
 import com.microdg.gwt.monitor.client.MicroMonitor;
+import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.EventBusConstants;
@@ -51,7 +52,13 @@ public class ApplicationHistory extends EventDrivenController implements
 		}else if("settings".equals(message.toString())){
 			EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
 			EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Settings"));
+		}else if("dashboard".equals(message.toString())){
+			setPage(MicroMonitor.getMainLayoutUi(),"Dashboard");
 		}
+	}
+	private void setPage(MainLayoutUi mainLayoutUi, String string) {
+		EventBus.handleEvent("root", ComposeEvent.REPLACE, mainLayoutUi);
+		EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name",string));
 	}
 
 }

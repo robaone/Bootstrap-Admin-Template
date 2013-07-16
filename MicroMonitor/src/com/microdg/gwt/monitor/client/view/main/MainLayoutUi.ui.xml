@@ -52,7 +52,7 @@
 									<!-- .nav -->
 									<ul class="nav">
 										<li>
-											<a href="javascript:void(0)">Dashboard</a>
+											<a href="#dashboard">Dashboard</a>
 										</li>
 										<li class="dropdown ">
 											<a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)">
@@ -120,7 +120,7 @@
 				<div id="left">
 					<!-- .user-media -->
 					<div class="media user-media hidden-phone">
-						<a href="javascript:void(0)" class="user-link">
+						<a href="#settings" class="user-link">
 							<g:Image ui:field="profileImage" styleName="media-object img-polaroid user-img"/>
 							<span class="label user-label"><g:InlineLabel ui:field="userAlertCount" /></span>
 						</a>
