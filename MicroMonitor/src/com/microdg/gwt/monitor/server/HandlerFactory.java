@@ -4,6 +4,7 @@ import com.microdg.gwt.monitor.server.impl.AppSessionHandler;
 import com.microdg.gwt.monitor.server.impl.KeywordHandler;
 import com.microdg.gwt.monitor.server.impl.LoginHandler;
 import com.microdg.gwt.monitor.server.impl.LogoutHandler;
+import com.microdg.gwt.monitor.server.impl.ServiceAreaHandler;
 import com.microdg.gwt.monitor.server.impl.SitesHandler;
 
 public class HandlerFactory {
@@ -26,6 +27,10 @@ public class HandlerFactory {
 
 	public static KeywordHandlerTemplate newKeywordHandler() {
 		return new KeywordHandler();
+	}
+
+	public static ServiceAreaHandlerTemplate newServiceAreaHandler() {
+		return new ServiceAreaHandler();
 	}
 
 }

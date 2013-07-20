@@ -2,12 +2,14 @@ package com.microdg.gwt.monitor.client.rpc;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.callback.CreateNewSiteCallback;
+import com.microdg.gwt.monitor.client.callback.GetKeywordsCallback;
+import com.microdg.gwt.monitor.client.callback.GetServceAreasCallback;
 import com.microdg.gwt.monitor.client.callback.InitilizeCalback;
 import com.microdg.gwt.monitor.client.callback.SaveKeywordCallback;
-import com.microdg.gwt.monitor.client.control.GetKeywordsCallback;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
+import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
 import com.microdg.gwt.monitor.shared.dto.SiteDTO;
 
 public interface DataServiceAsync {
@@ -27,5 +29,8 @@ public interface DataServiceAsync {
 			AsyncCallback<KeywordDTO> saveKeywordCallback);
 
 	void getSiteKeywords(int id, AsyncCallback<KeywordDTO[]> getKeywordsCallback);
+
+	void getSiteServiceAreas(int id,
+			AsyncCallback<ServiceAreaDTO[]> getServceAreasCallback);
 
 }

@@ -25,6 +25,8 @@ public class ApplicationEventFactory {
 			return new ApplicationSaveKeywordHandler();
 		}else if("site:load-keywords".equalsIgnoreCase(channel)){
 			return new ApplicationKeywordViewHandler();
+		}else if("site:load-serviceareas".equalsIgnoreCase(channel)){
+			return new ApplicationServiceAreaViewHandler();
 		}
 		return null;
 	}

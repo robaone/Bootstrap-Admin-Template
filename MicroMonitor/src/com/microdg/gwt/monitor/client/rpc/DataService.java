@@ -6,6 +6,7 @@ import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
+import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
 import com.microdg.gwt.monitor.shared.dto.SiteDTO;
 
 @RemoteServiceRelativePath("data")
@@ -24,5 +25,7 @@ public interface DataService extends RemoteService {
 	KeywordDTO saveSiteKeyword(KeywordDTO message);
 
 	KeywordDTO[] getSiteKeywords(int id);
+
+	ServiceAreaDTO[] getSiteServiceAreas(int id);
 
 }

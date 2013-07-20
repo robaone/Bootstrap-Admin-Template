@@ -6,6 +6,7 @@ import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
+import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
 import com.microdg.gwt.monitor.shared.dto.SiteDTO;
 
 public class DataServiceImpl extends RemoteServiceServlet implements DataService {
@@ -52,6 +53,12 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 	public KeywordDTO[] getSiteKeywords(int id) {
 		KeywordHandlerTemplate handler = HandlerFactory.newKeywordHandler();
 		return handler.getSiteKeywords(id);
+	}
+
+	@Override
+	public ServiceAreaDTO[] getSiteServiceAreas(int id) {
+		ServiceAreaHandlerTemplate handler = HandlerFactory.newServiceAreaHandler();
+		return handler.getSiteServiceAreas(id);
 	}
 
 }
