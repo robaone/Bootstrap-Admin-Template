@@ -12,7 +12,7 @@ import com.robaone.gwt.eventbus.client.EventDrivenController;
 import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 
 public class ApplicationHistory extends EventDrivenController implements
-		ValueChangeHandler<String> {
+ValueChangeHandler<String> {
 	public ApplicationHistory(){
 		bind();
 	}
@@ -42,19 +42,22 @@ public class ApplicationHistory extends EventDrivenController implements
 	@Override
 	public void handleObjectEvent(Object message) {
 		System.out.println("ApplicationHistory: "+message);
-		if("".equals(message.toString()) || "home".equalsIgnoreCase(message.toString())){
-			EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
-			EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Home"));
-		}else if("settings".equals(message.toString())){
-			EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
-			EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Settings"));
-		}else if("dashboard".equals(message.toString())){
-			setPage(MicroMonitor.getMainLayoutUi(),"Dashboard");
+		if(message != null){
+			String[] parsed = message.toString().split("/");
+			try{
+				if("".equals(parsed[0]) || "home".equalsIgnoreCase(parsed[0])){
+					parsed[0] = "home";
+				}
+				handle(parsed);
+			}catch(Exception e){
+				System.out.println("Page, "+parsed[0]+" not found");
+			}
 		}
 	}
-	private void setPage(MainLayoutUi mainLayoutUi, String string) {
-		EventBus.handleEvent("root", ComposeEvent.REPLACE, mainLayoutUi);
-		EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name",string));
+	private void handle(String[] parsed) throws Exception {
+		ApplicationHistoryHandler home = ApplicationHistoryHandlerFactory.newInstance(parsed[0]);
+		home.handle(parsed);
 	}
+	
 
 }
