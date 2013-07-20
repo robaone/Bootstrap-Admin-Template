@@ -1,8 +1,10 @@
 package com.microdg.gwt.monitor.server;
 
 import com.microdg.gwt.monitor.server.impl.AppSessionHandler;
+import com.microdg.gwt.monitor.server.impl.KeywordHandler;
 import com.microdg.gwt.monitor.server.impl.LoginHandler;
 import com.microdg.gwt.monitor.server.impl.LogoutHandler;
+import com.microdg.gwt.monitor.server.impl.SitesHandler;
 
 public class HandlerFactory {
 
@@ -16,6 +18,14 @@ public class HandlerFactory {
 
 	public static AppSessionHandlerTemplace newAppSessionHandler() {
 		return new AppSessionHandler();
+	}
+
+	public static SitesHandlerTemplate newSitesHandler() {
+		return new SitesHandler();
+	}
+
+	public static KeywordHandlerTemplate newKeywordHandler() {
+		return new KeywordHandler();
 	}
 
 }
