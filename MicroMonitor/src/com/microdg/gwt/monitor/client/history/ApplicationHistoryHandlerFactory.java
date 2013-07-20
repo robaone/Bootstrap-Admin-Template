@@ -25,6 +25,8 @@ public class ApplicationHistoryHandlerFactory {
 			return new SettingsPageHandler();
 		}else if("dashboard".equalsIgnoreCase(page)){
 			return new DashboardPageHandler();
+		}else if("sites".equalsIgnoreCase(page)){
+			return new SitesPageHandler();
 		}else{
 			throw new Exception("No match found");
 		}

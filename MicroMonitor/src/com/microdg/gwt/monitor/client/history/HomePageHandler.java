@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.microdg.gwt.monitor.client.MicroMonitor;
+import com.microdg.gwt.monitor.client.handlers.CreateSiteHandler;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
@@ -32,14 +33,7 @@ import com.robaone.gwt.eventbus.client.widget.DynamicTableWidget;
  */
 public class HomePageHandler implements ApplicationHistoryHandler {
 
-	public class CreateSiteHandler implements ClickHandler {
-
-		@Override
-		public void onClick(ClickEvent event) {
-			Window.alert("clicked");
-		}
-
-	}
+	
 
 	@Override
 	public void handle(String[] parsed) {
