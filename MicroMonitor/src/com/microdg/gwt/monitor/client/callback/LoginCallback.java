@@ -1,4 +1,4 @@
-package com.microdg.gwt.monitor.client.control.login;
+package com.microdg.gwt.monitor.client.callback;
 
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;

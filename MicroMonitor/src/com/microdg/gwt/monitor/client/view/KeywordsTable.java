@@ -14,7 +14,7 @@ public class KeywordsTable extends EventDrivenComposite {
 		table = new DynamicTableWidget();
 		table.setStyleName("table");
 		this.initWidget(table);
-		String[] header = {"keyword"};
+		String[] header = {"Keywords"};
 		table.setHeaders(header);
 	}
 	@Override
