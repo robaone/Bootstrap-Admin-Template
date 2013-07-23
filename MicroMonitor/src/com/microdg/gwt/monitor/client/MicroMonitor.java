@@ -72,6 +72,7 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 		layout = new MainLayoutUi();
 		layout.addStyleName("wrap");
 		layout.setHeight("100%");
+		layout.setChannels("root-content");
 		DockLayoutPanel appPanel = new DockLayoutPanel(Unit.EM);
 		appPanel.addSouth(new HTML("<div id=\"footer\"><p>Admin Dashboard</p></div>"), 3);
 		ScrollPanel scrollPanel = new ScrollPanel();
