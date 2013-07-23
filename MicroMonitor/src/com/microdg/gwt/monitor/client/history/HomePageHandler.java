@@ -7,7 +7,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.microdg.gwt.monitor.client.MicroMonitor;
-import com.microdg.gwt.monitor.client.view.SitesTable;
+import com.microdg.gwt.monitor.client.handlers.CreateSiteHandler;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
@@ -33,14 +33,7 @@ import com.robaone.gwt.eventbus.client.widget.DynamicTableWidget;
  */
 public class HomePageHandler implements ApplicationHistoryHandler {
 
-	public class CreateSiteHandler implements ClickHandler {
-
-		@Override
-		public void onClick(ClickEvent event) {
-			Window.alert("clicked");
-		}
-
-	}
+	
 
 	@Override
 	public void handle(String[] parsed) {
@@ -52,8 +45,11 @@ public class HomePageHandler implements ApplicationHistoryHandler {
 		vp.setWidth("100%");
 		vp.setHeight("400px");
 		vp.add(add);
-		SitesTable stable = new SitesTable();
-		vp.add(stable);
+		DynamicTableWidget table = new DynamicTableWidget();
+		table.setStyleName("table");
+		vp.add(table);
+		String[] headers = {"Site Name","Action"};
+		table.setHeaders(headers);
 		MicroMonitor.getMainLayoutUi().getContentPanel().clear();
 		MicroMonitor.getMainLayoutUi().getContentPanel().add(vp);
 		EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Home"));
