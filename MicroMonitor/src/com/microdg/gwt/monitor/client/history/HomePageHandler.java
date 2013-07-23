@@ -1,11 +1,7 @@
 package com.microdg.gwt.monitor.client.history;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 import com.microdg.gwt.monitor.client.MicroMonitor;
 import com.microdg.gwt.monitor.client.handlers.CreateSiteHandler;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
