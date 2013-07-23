@@ -17,6 +17,16 @@ public class ApplicationEventFactory {
 			return new ApplicationPageNameHandler();
 		}else if("set-profile".equals(channel)){
 			return new ApplicationProfileHandler();
+		}else if("site:create-new".equalsIgnoreCase(channel)){
+			return new ApplicationSaveNewSiteHandler();
+		}else if("site:view".equalsIgnoreCase(channel)){
+			return new ApplicationViewSiteHandler();
+		}else if("site:save-keyword".equalsIgnoreCase(channel)){
+			return new ApplicationSaveKeywordHandler();
+		}else if("site:load-keywords".equalsIgnoreCase(channel)){
+			return new ApplicationKeywordViewHandler();
+		}else if("site:load-serviceareas".equalsIgnoreCase(channel)){
+			return new ApplicationServiceAreaViewHandler();
 		}
 		return null;
 	}
