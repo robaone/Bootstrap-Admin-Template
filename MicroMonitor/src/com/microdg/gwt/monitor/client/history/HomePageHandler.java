@@ -2,6 +2,7 @@ package com.microdg.gwt.monitor.client.history;
 
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.microdg.gwt.monitor.client.MicroMonitor;
 import com.microdg.gwt.monitor.client.handlers.CreateSiteHandler;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
@@ -34,18 +35,10 @@ public class HomePageHandler implements ApplicationHistoryHandler {
 	@Override
 	public void handle(String[] parsed) {
 		EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
-		Button add = new Button("Build New Site");
-		add.setStyleName("btn btn-primary");
-		add.addClickHandler(new CreateSiteHandler());
 		FlowPanel vp = new FlowPanel();
 		vp.setWidth("100%");
 		vp.setHeight("400px");
-		vp.add(add);
-		DynamicTableWidget table = new DynamicTableWidget();
-		table.setStyleName("table");
-		vp.add(table);
-		String[] headers = {"Site Name","Action"};
-		table.setHeaders(headers);
+		vp.add(new Label("This is the home page"));
 		MicroMonitor.getMainLayoutUi().getContentPanel().clear();
 		MicroMonitor.getMainLayoutUi().getContentPanel().add(vp);
 		EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Home"));

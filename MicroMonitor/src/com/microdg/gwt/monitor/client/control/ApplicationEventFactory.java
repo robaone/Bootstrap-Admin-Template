@@ -27,6 +27,8 @@ public class ApplicationEventFactory {
 			return new ApplicationKeywordViewHandler();
 		}else if("site:load-serviceareas".equalsIgnoreCase(channel)){
 			return new ApplicationServiceAreaViewHandler();
+		}else if("site:save-servicearea".equalsIgnoreCase(channel)){
+			return new ApplicationSaveServiceAreaHandler();
 		}
 		return null;
 	}

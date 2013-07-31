@@ -58,7 +58,7 @@ public class AppController extends EventDrivenController {
 
 	@Override
 	public void handleObjectEvent(Object message) {
-		System.out.println("AppController: "+message.getClass().getName());
+		System.out.println("AppController: "+message.getClass().getName()+": "+message.toString());
 		ApplicationEventHandler handler = ApplicationEventFactory.newInstance(this.getChannel());
 		if(handler != null){
 			try{

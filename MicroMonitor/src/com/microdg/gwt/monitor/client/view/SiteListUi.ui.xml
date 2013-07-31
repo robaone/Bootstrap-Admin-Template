@@ -1,0 +1,14 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:u="urn:import:com.robaone.gwt.eventbus.client.widget">
+	<ui:style>
+		.important {
+			font-weight: bold;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		This is a site list
+		<u:DynamicTableWidget styleName="table" ui:field="siteTable"></u:DynamicTableWidget>
+	</g:HTMLPanel>
+</ui:UiBinder> 
