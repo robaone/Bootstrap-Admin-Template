@@ -36,6 +36,8 @@ public class ApplicationHistoryHandlerFactory {
 			return new MassExposureSitesPageHandler();
 		}else if(MassExposureClientViewHandler.is(page)){
 			return new MassExposureClientViewHandler();
+		}else if(MassExposureSiteViewHandler.is(page)){
+			return new MassExposureSiteViewHandler();
 		}else{
 			throw new Exception("No match found");
 		}
