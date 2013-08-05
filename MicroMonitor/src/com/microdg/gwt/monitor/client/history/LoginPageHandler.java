@@ -1,14 +1,8 @@
 package com.microdg.gwt.monitor.client.history;
 
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.microdg.gwt.monitor.client.MicroMonitor;
-import com.microdg.gwt.monitor.client.handlers.CreateSiteHandler;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
-import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
-import com.robaone.gwt.eventbus.client.widget.DynamicTableWidget;
 
 /**
  * <pre>   Copyright 2013 Ansel Robateau
@@ -28,19 +22,11 @@ import com.robaone.gwt.eventbus.client.widget.DynamicTableWidget;
  * @author Ansel
  *
  */
-public class HomePageHandler implements ApplicationHistoryHandler {
-
-	
+public class LoginPageHandler implements ApplicationHistoryHandler {
 
 	@Override
 	public void handle(String[] parsed) {
-		EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
-		FlowPanel vp = new FlowPanel();
-		vp.setWidth("100%");
-		vp.setHeight("400px");
-		vp.add(new Label("This is the home page"));
-		EventBus.handleEvent("root-content", ComposeEvent.REPLACE, vp);
-		EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Home"));
+		EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getLoginPage());
 	}
 
 }

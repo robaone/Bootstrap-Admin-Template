@@ -3,13 +3,12 @@ package com.microdg.gwt.monitor.client.history;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.History;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Widget;
 import com.microdg.gwt.monitor.client.MicroMonitor;
-import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
-import com.robaone.gwt.eventbus.client.ComposeEvent;
-import com.robaone.gwt.eventbus.client.EventBus;
+import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.robaone.gwt.eventbus.client.EventDrivenController;
-import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 
 public class ApplicationHistory extends EventDrivenController implements
 ValueChangeHandler<String> {
@@ -50,7 +49,25 @@ ValueChangeHandler<String> {
 				}
 				handle(parsed);
 			}catch(Exception e){
-				System.out.println("Page, "+parsed[0]+" not found");
+				if("getsessiondata".equals(e.getMessage())){
+					MicroMonitor.dataService.getSessionData(new AsyncCallback<AppSessionDataDTO>(){
+
+						@Override
+						public void onFailure(Throwable caught) {
+							// TODO Auto-generated method stub
+							
+						}
+
+						@Override
+						public void onSuccess(AppSessionDataDTO result) {
+							MicroMonitor.setAppSessionData(result);
+							ApplicationHistory.this.handleObjectEvent(History.getToken());
+						}
+						
+					});
+				}else{
+					System.out.println("Page, "+parsed[0]+" not found");
+				}
 			}
 		}
 	}

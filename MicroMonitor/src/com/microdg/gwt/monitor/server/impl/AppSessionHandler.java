@@ -54,7 +54,7 @@ public class AppSessionHandler implements AppSessionHandlerTemplace {
 		profile.setAccountType("test");
 		profile.setLastAccessDate(new java.util.Date());
 		profile.setUsername("test user");
-		return profile;
+		return null;
 	}
 
 	@Override

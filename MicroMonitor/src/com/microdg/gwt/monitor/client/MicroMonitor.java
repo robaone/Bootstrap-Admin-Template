@@ -39,6 +39,8 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	private static DockLayoutPanel mainLayout;
 	private static ScrollPanel scrollPanel = new ScrollPanel();
 	private static LoginUi login;
+
+	private static AppSessionDataDTO sessionData;
 	@SuppressWarnings("unused")
 	private AppController controller;
 	public void onModuleLoad() {
@@ -111,8 +113,11 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 		return login;
 	}
 	public static void setAppSessionData(AppSessionDataDTO result) {
+		sessionData = result;
 		EventBus.handleObjectEvent(new ObjectChannelEvent("set-profile",result.getProfile()));
 		EventBus.handleObjectEvent(new ObjectChannelEvent("set-brand",result.getBrand()));
 	}
-
+	public static AppSessionDataDTO getAppSessionData(){
+		return sessionData;
+	}
 }
