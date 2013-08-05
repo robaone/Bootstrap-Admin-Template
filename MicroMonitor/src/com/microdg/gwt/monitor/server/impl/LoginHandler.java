@@ -7,7 +7,7 @@ import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 public class LoginHandler implements LoginHandlerTemplate {
 
 	public LoginHandler(SessionData sessionData) {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
