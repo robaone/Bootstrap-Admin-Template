@@ -1,5 +1,8 @@
 package com.microdg.gwt.monitor.server;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
+
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.microdg.gwt.monitor.client.rpc.DataService;
 import com.microdg.gwt.monitor.shared.SimpleException;
@@ -12,52 +15,57 @@ import com.microdg.gwt.monitor.shared.dto.SiteDTO;
 public class DataServiceImpl extends RemoteServiceServlet implements DataService {
 
 	private static final long serialVersionUID = 4710522469154611397L;
-
+	public static final String SESSIONDATA = "sessiondata";
+	private SessionData getSessionDataObject(){
+		AppSessionHandlerTemplace handler = HandlerFactory.newAppSessionHandler();
+		SessionData sdata = handler.initializeSession(this.perThreadRequest.get(),this.perThreadResponse.get());
+		return sdata;
+	}
 	@Override
 	public boolean login(LoginInfoDTO message) {
-		LoginHandlerTemplate handler = HandlerFactory.newLoginHandler();
+		LoginHandlerTemplate handler = HandlerFactory.newLoginHandler(this.getSessionDataObject());
 		return handler.login(message);
 	}
 
 	@Override
 	public boolean logout() {
-		LogoutHandlerTemplate handler = HandlerFactory.newLogoutHandler();
+		LogoutHandlerTemplate handler = HandlerFactory.newLogoutHandler(this.getSessionDataObject());
 		return handler.logout();
 	}
 
 	@Override
 	public AppSessionDataDTO getSessionData() throws SimpleException {
-		AppSessionHandlerTemplace handler = HandlerFactory.newAppSessionHandler();
+		AppSessionHandlerTemplace handler = HandlerFactory.newAppSessionHandler(this.getSessionDataObject());
 		return handler.getSessionData();
 	}
 
 	@Override
 	public SiteDTO createNewSite(String sitename) {
-		SitesHandlerTemplate handler = HandlerFactory.newSitesHandler();
+		SitesHandlerTemplate handler = HandlerFactory.newSitesHandler(this.getSessionDataObject());
 		return handler.createNewSite(sitename);
 	}
 
 	@Override
 	public SiteDTO getSiteInfo(int id) {
-		SitesHandlerTemplate handler = HandlerFactory.newSitesHandler();
+		SitesHandlerTemplate handler = HandlerFactory.newSitesHandler(this.getSessionDataObject());
 		return handler.getSiteInfo(id);
 	}
 
 	@Override
 	public KeywordDTO saveSiteKeyword(KeywordDTO message) {
-		KeywordHandlerTemplate handler = HandlerFactory.newKeywordHandler();
+		KeywordHandlerTemplate handler = HandlerFactory.newKeywordHandler(this.getSessionDataObject());
 		return handler.saveSiteKeyword(message);
 	}
 
 	@Override
 	public KeywordDTO[] getSiteKeywords(int id) {
-		KeywordHandlerTemplate handler = HandlerFactory.newKeywordHandler();
+		KeywordHandlerTemplate handler = HandlerFactory.newKeywordHandler(this.getSessionDataObject());
 		return handler.getSiteKeywords(id);
 	}
 
 	@Override
 	public ServiceAreaDTO[] getSiteServiceAreas(int id) {
-		ServiceAreaHandlerTemplate handler = HandlerFactory.newServiceAreaHandler();
+		ServiceAreaHandlerTemplate handler = HandlerFactory.newServiceAreaHandler(this.getSessionDataObject());
 		return handler.getSiteServiceAreas(id);
 	}
 

@@ -1,11 +1,4 @@
 package com.microdg.gwt.monitor.server;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.microdg.gwt.monitor.shared.SimpleException;
-import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
-
 /**
  * <pre>   Copyright 2013 Ansel Robateau
          http://www.robaone.com
@@ -24,13 +17,6 @@ import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
  * @author Ansel
  *
  */
-public interface AppSessionHandlerTemplace {
-
-	AppSessionDataDTO getSessionData() throws SimpleException;
-
-	SessionData newSessionData();
-
-	SessionData initializeSession(HttpServletRequest httpServletRequest,
-			HttpServletResponse httpServletResponse);
+public interface SessionData {
 
 }

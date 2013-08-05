@@ -1,10 +1,8 @@
-package com.microdg.gwt.monitor.server;
+package com.microdg.gwt.monitor.client.events;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.microdg.gwt.monitor.shared.SimpleException;
-import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.FormPanel.SubmitEvent;
+import com.google.gwt.user.client.ui.FormPanel.SubmitHandler;
 
 /**
  * <pre>   Copyright 2013 Ansel Robateau
@@ -24,13 +22,12 @@ import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
  * @author Ansel
  *
  */
-public interface AppSessionHandlerTemplace {
+public class NewSiteSubmitHandler implements SubmitHandler {
 
-	AppSessionDataDTO getSessionData() throws SimpleException;
-
-	SessionData newSessionData();
-
-	SessionData initializeSession(HttpServletRequest httpServletRequest,
-			HttpServletResponse httpServletResponse);
+	@Override
+	public void onSubmit(SubmitEvent event) {
+		Object source = event.getSource();
+		Window.alert("Submitting new site");
+	}
 
 }

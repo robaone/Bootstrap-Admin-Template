@@ -1,9 +1,14 @@
 package com.microdg.gwt.monitor.server.impl;
 
+import com.microdg.gwt.monitor.server.SessionData;
 import com.microdg.gwt.monitor.server.SitesHandlerTemplate;
 import com.microdg.gwt.monitor.shared.dto.SiteDTO;
 
 public class SitesHandler implements SitesHandlerTemplate {
+
+	public SitesHandler(SessionData sessionData) {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public SiteDTO createNewSite(String sitename) {

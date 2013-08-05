@@ -37,13 +37,16 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	 */
 	private static MainLayoutUi layout;
 	private static DockLayoutPanel mainLayout;
+	private static ScrollPanel scrollPanel = new ScrollPanel();
 	private static LoginUi login;
 	@SuppressWarnings("unused")
 	private AppController controller;
 	public void onModuleLoad() {
 		this.setChannels("root");
 		bind();
-		
+		scrollPanel.setWidth("100%");
+		scrollPanel.setHeight("100%");
+		RootLayoutPanel.get().add(scrollPanel);
 		mainLayout = buildMainLayout();
 		login = buildLoginLayout();
 		initAppController();
@@ -84,9 +87,8 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	@Override
 	public void handleEvent(String command, Widget message) {
 		if(ComposeEvent.REPLACE.equals(command)){
-			if(RootLayoutPanel.get().getWidgetCount() == 0 || !RootLayoutPanel.get().getWidget(0).equals(message)){
-				RootLayoutPanel.get().clear();
-				RootLayoutPanel.get().add(message);
+			if(scrollPanel.getWidget() == null || !scrollPanel.getWidget().equals(message)){
+				scrollPanel.setWidget(message);
 			}
 		}
 	}

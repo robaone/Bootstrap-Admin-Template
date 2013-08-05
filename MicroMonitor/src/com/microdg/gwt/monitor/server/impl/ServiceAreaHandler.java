@@ -3,9 +3,14 @@ package com.microdg.gwt.monitor.server.impl;
 import java.util.ArrayList;
 
 import com.microdg.gwt.monitor.server.ServiceAreaHandlerTemplate;
+import com.microdg.gwt.monitor.server.SessionData;
 import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
 
 public class ServiceAreaHandler implements ServiceAreaHandlerTemplate {
+
+	public ServiceAreaHandler(SessionData sessionData) {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public ServiceAreaDTO[] getSiteServiceAreas(int id) {

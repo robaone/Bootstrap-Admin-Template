@@ -1,6 +1,12 @@
 package com.microdg.gwt.monitor.server.impl;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.microdg.gwt.monitor.server.AppSessionHandlerTemplace;
+import com.microdg.gwt.monitor.server.SessionData;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.UserProfileDTO;
@@ -25,6 +31,16 @@ import com.microdg.gwt.monitor.shared.dto.UserProfileDTO;
  */
 public class AppSessionHandler implements AppSessionHandlerTemplace {
 
+	private static final String SESSIONDATA = "sessiondata";
+
+	public AppSessionHandler(SessionData sessionData) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public AppSessionHandler() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public AppSessionDataDTO getSessionData() throws SimpleException {
 		AppSessionDataDTO data = new AppSessionDataDTO();
@@ -39,6 +55,27 @@ public class AppSessionHandler implements AppSessionHandlerTemplace {
 		profile.setLastAccessDate(new java.util.Date());
 		profile.setUsername("test user");
 		return profile;
+	}
+
+	@Override
+	public SessionData newSessionData() {
+		SessionData data = new SessionData(){
+			
+		};
+		return data;
+	}
+
+	@Override
+	public SessionData initializeSession(HttpServletRequest request,
+			HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		SessionData sdata = (SessionData)session.getAttribute(SESSIONDATA);
+		if(sdata == null){
+			sdata = this.newSessionData();
+			session.setAttribute(SESSIONDATA, sdata);
+		}
+		response.addCookie(new Cookie("accesstoken","234233242423442342342432"));
+		return sdata;
 	}
 
 }
