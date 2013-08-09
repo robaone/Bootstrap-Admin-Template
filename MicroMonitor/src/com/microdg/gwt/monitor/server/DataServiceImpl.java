@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.microdg.gwt.monitor.client.rpc.DataService;
+import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
@@ -22,7 +23,7 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 		return sdata;
 	}
 	@Override
-	public boolean login(LoginInfoDTO message) {
+	public boolean login(LoginInfoDTO message) throws SimpleException, FieldException{
 		LoginHandlerTemplate handler = HandlerFactory.newLoginHandler(this.getSessionDataObject());
 		return handler.login(message);
 	}
@@ -40,7 +41,7 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 	}
 
 	@Override
-	public SiteDTO createNewSite(String sitename) {
+	public SiteDTO createNewSite(String sitename) throws SimpleException, FieldException {
 		SitesHandlerTemplate handler = HandlerFactory.newSitesHandler(this.getSessionDataObject());
 		return handler.createNewSite(sitename);
 	}
@@ -52,7 +53,7 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 	}
 
 	@Override
-	public KeywordDTO saveSiteKeyword(KeywordDTO message) {
+	public KeywordDTO saveSiteKeyword(KeywordDTO message) throws SimpleException, FieldException {
 		KeywordHandlerTemplate handler = HandlerFactory.newKeywordHandler(this.getSessionDataObject());
 		return handler.saveSiteKeyword(message);
 	}

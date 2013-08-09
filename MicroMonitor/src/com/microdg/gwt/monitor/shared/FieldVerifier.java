@@ -39,4 +39,18 @@ public class FieldVerifier {
 		}
 		return name.length() > 3;
 	}
+
+	public static boolean exists(Object username) {
+		if(username == null){
+			return false;
+		}else{
+			if(username instanceof String){
+				String str = username.toString();
+				if(str.trim().length() > 0){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
