@@ -13,8 +13,8 @@ import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
-import com.microdg.gwt.monitor.shared.dto.FieldError;
-import com.microdg.gwt.monitor.shared.dto.GeneralError;
+import com.microdg.gwt.monitor.shared.dto.FieldErrorDTO;
+import com.microdg.gwt.monitor.shared.dto.GeneralErrorDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.EventDrivenComposite;
@@ -112,14 +112,14 @@ public class LoginUi extends EventDrivenComposite {
 
 	@Override
 	public void handleObjectEvent(Object message) {
-		if(message instanceof GeneralError){
-			handleError((GeneralError)message);
-		}else if(message instanceof FieldError){
-			handleError((FieldError)message);
+		if(message instanceof GeneralErrorDTO){
+			handleError((GeneralErrorDTO)message);
+		}else if(message instanceof FieldErrorDTO){
+			handleError((FieldErrorDTO)message);
 		}
 	}
 
-	private void handleError(FieldError message) {
+	private void handleError(FieldErrorDTO message) {
 		if("username".equalsIgnoreCase(message.getFieldName())){
 			this.usernameError.setVisible(true);
 			this.usernameErrorText.setText(message.getError());
@@ -129,7 +129,7 @@ public class LoginUi extends EventDrivenComposite {
 		}
 	}
 
-	private void handleError(GeneralError error) {
+	private void handleError(GeneralErrorDTO error) {
 		this.generalError.setVisible(true);
 		this.generalErrorText.setText(error.getError());
 	}
