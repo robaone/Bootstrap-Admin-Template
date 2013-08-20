@@ -19,10 +19,10 @@
 						<p class="muted text-center">
 							Enter your username and password
 						</p>
-						<g:HTMLPanel ui:field="loginError" styleName="alert alert-error">
-						  <g:HTMLPanel ui:field="generalError"><strong>Error!</strong> <g:InlineLabel ui:field="generalErrorText">This is a general error.</g:InlineLabel></g:HTMLPanel>
-						  <g:HTMLPanel ui:field="usernameError"><strong>Username:</strong> <g:InlineLabel ui:field="usernameErrorText">This is the username error.</g:InlineLabel></g:HTMLPanel>
-						  <g:HTMLPanel ui:field="passwordError"><strong>Password:</strong> <g:InlineLabel ui:field="passwordErrorText">This is the password error.</g:InlineLabel></g:HTMLPanel>
+						<g:HTMLPanel ui:field="loginError" styleName="alert alert-error" visible="false">
+						  <g:HTMLPanel ui:field="generalError" visible="false"><strong>Error!</strong> <g:InlineLabel ui:field="generalErrorText">This is a general error.</g:InlineLabel></g:HTMLPanel>
+						  <g:HTMLPanel ui:field="usernameError" visible="false"><strong>Username:</strong> <g:InlineLabel ui:field="usernameErrorText">This is the username error.</g:InlineLabel></g:HTMLPanel>
+						  <g:HTMLPanel ui:field="passwordError" visible="false"><strong>Password:</strong> <g:InlineLabel ui:field="passwordErrorText">This is the password error.</g:InlineLabel></g:HTMLPanel>
 						</g:HTMLPanel>
 						<g:TextBox ui:field="username" styleName="input-block-level" />
 						<g:PasswordTextBox ui:field="password" styleName="input-block-level" />

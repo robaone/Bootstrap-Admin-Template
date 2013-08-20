@@ -28,6 +28,7 @@ public class LoginUi extends EventDrivenComposite {
 	}
 
 	public LoginUi() {
+		this.setChannels("loginui");
 		initWidget(uiBinder.createAndBindUi(this));
 		username.getElement().setAttribute("placeholder", "Username");
 		password.getElement().setAttribute("placeholder", "Password");
@@ -37,6 +38,7 @@ public class LoginUi extends EventDrivenComposite {
 		registerUsername.getElement().setAttribute("placeholder", "username");
 		registerEmail.getElement().setAttribute("placeholder", "mail@domain.com");
 		registerPassword.getElement().setAttribute("placeholder", "password");
+		bind();
 	}
 
 	@UiField TextBox username;
@@ -58,6 +60,7 @@ public class LoginUi extends EventDrivenComposite {
 	
 	@UiHandler("submit")
 	void onClick(ClickEvent e){
+		this.hideErrors();
 		String username_string = username.getText();
 		String password_string = password.getText();
 		LoginInfoDTO logininfo = new LoginInfoDTO();
@@ -70,6 +73,7 @@ public class LoginUi extends EventDrivenComposite {
 
 	@UiHandler("recoverPassword")
 	void onRecoverClick(ClickEvent e){
+		this.hideErrors();
 		String email_string = email.getText();
 		LoginInfoDTO logininfo = new LoginInfoDTO();
 		logininfo.setEmail(email_string);
@@ -80,6 +84,7 @@ public class LoginUi extends EventDrivenComposite {
 
 	@UiHandler("registerSubmit")
 	void onRegisterClick(ClickEvent e){
+		this.hideErrors();
 		String email_string = registerEmail.getText();
 		String username_string = registerUsername.getText();
 		String password_string = registerPassword.getText();
@@ -113,10 +118,23 @@ public class LoginUi extends EventDrivenComposite {
 	@Override
 	public void handleObjectEvent(Object message) {
 		if(message instanceof GeneralErrorDTO){
+			showErrors();
 			handleError((GeneralErrorDTO)message);
 		}else if(message instanceof FieldErrorDTO){
+			showErrors();
 			handleError((FieldErrorDTO)message);
 		}
+	}
+
+	private void showErrors() {
+		this.loginError.setVisible(true);
+	}
+	
+	private void hideErrors() {
+		this.loginError.setVisible(false);
+		this.generalError.setVisible(false);
+		this.usernameError.setVisible(false);
+		this.passwordError.setVisible(false);
 	}
 
 	private void handleError(FieldErrorDTO message) {
