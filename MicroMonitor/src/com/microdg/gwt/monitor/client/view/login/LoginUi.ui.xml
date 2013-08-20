@@ -34,6 +34,10 @@
 						<p class="muted text-center">
 							Enter your valid e-mail
 						</p>
+						<g:HTMLPanel ui:field="passwordResetError" styleName="alert alert-error" visible="false">
+						  <g:HTMLPanel ui:field="generalEmailError" visible="false"><strong>Error!</strong> <g:InlineLabel ui:field="generalEmailErrorText">This is a general error.</g:InlineLabel></g:HTMLPanel>
+						  <g:HTMLPanel ui:field="emailError" visible="false"><strong>E-mail:</strong> <g:InlineLabel ui:field="emailErrorText">This is the username error.</g:InlineLabel></g:HTMLPanel>
+						</g:HTMLPanel>
 						<g:TextBox ui:field="email" styleName="input-block-level" />
 						<br />
 						<br />

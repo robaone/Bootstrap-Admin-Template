@@ -29,4 +29,6 @@ public interface DataService extends RemoteService {
 
 	ServiceAreaDTO[] getSiteServiceAreas(int id);
 
+	boolean recoverPassword(String email) throws SimpleException, FieldException;
+
 }

@@ -7,7 +7,6 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.PasswordTextBox;
@@ -28,7 +27,7 @@ public class LoginUi extends EventDrivenComposite {
 	}
 
 	public LoginUi() {
-		this.setChannels("loginui");
+		this.setChannels("loginui passwordresetui");
 		initWidget(uiBinder.createAndBindUi(this));
 		username.getElement().setAttribute("placeholder", "Username");
 		password.getElement().setAttribute("placeholder", "Password");
@@ -51,12 +50,18 @@ public class LoginUi extends EventDrivenComposite {
 	@UiField PasswordTextBox registerPassword;
 	@UiField Button registerSubmit;
 	@UiField HTMLPanel loginError;
+	@UiField HTMLPanel passwordResetError;
 	@UiField HTMLPanel generalError;
+	@UiField HTMLPanel generalEmailError;
 	@UiField HTMLPanel usernameError;
+	@UiField HTMLPanel emailError;
 	@UiField HTMLPanel passwordError;
 	@UiField InlineLabel generalErrorText;
 	@UiField InlineLabel usernameErrorText;
 	@UiField InlineLabel passwordErrorText;
+	@UiField InlineLabel generalEmailErrorText;
+	@UiField InlineLabel emailErrorText;
+	private String currentChannel;
 	
 	@UiHandler("submit")
 	void onClick(ClickEvent e){
@@ -114,6 +119,23 @@ public class LoginUi extends EventDrivenComposite {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	protected boolean inChannel(String channel){
+		boolean retval = super.inChannel(channel);
+		if(retval){
+			this.setCurrentChannel(channel);
+		}
+		return retval;
+	}
+
+	private void setCurrentChannel(String channel) {
+		this.currentChannel = channel;
+	}
+	
+	protected String getCurrentChannel(){
+		return this.currentChannel;
+	}
 
 	@Override
 	public void handleObjectEvent(Object message) {
@@ -135,6 +157,9 @@ public class LoginUi extends EventDrivenComposite {
 		this.generalError.setVisible(false);
 		this.usernameError.setVisible(false);
 		this.passwordError.setVisible(false);
+		this.passwordResetError.setVisible(false);
+		this.generalEmailError.setVisible(false);
+		this.emailError.setVisible(false);
 	}
 
 	private void handleError(FieldErrorDTO message) {
@@ -144,11 +169,23 @@ public class LoginUi extends EventDrivenComposite {
 		}else if("password".equalsIgnoreCase(message.getFieldName())){
 			this.passwordError.setVisible(true);
 			this.passwordErrorText.setText(message.getError());
+		}else if("email".equalsIgnoreCase(message.getFieldName())){
+			this.emailError.setVisible(true);
+			this.emailErrorText.setText(message.getError());
 		}
 	}
 
 	private void handleError(GeneralErrorDTO error) {
-		this.generalError.setVisible(true);
-		this.generalErrorText.setText(error.getError());
+		if("loginui".equalsIgnoreCase(this.getCurrentChannel())){
+			this.generalError.setVisible(true);
+			this.generalErrorText.setText(error.getError());
+		}else if("passwordresetui".equalsIgnoreCase(this.getCurrentChannel())){
+			this.handleResetError(error);
+		}
+	}
+	
+	private void handleResetError(GeneralErrorDTO error){
+		this.generalEmailError.setVisible(true);
+		this.generalEmailErrorText.setText(error.getError());
 	}
 }

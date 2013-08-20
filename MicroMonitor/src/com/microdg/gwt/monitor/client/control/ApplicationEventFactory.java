@@ -11,6 +11,8 @@ public class ApplicationEventFactory {
 			return new ApplicationLoginResultHandler();
 		}else if("logout".equals(channel)){
 			return new ApplicationLogoutHandler();
+		}else if("recover-password".equals(channel)){
+			return new ApplicationRecoverPasswordHandler();
 		}else if("set-brand".equals(channel)){
 			return new ApplicationBrandHandler();
 		}else if("set-page-name".equals(channel)){

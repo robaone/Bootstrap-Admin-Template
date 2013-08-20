@@ -17,6 +17,8 @@ public interface DataServiceAsync {
 	void login(LoginInfoDTO message,AsyncCallback<Boolean> response);
 
 	void logout(AsyncCallback<Boolean> asyncCallback);
+	
+	void recoverPassword(String email, AsyncCallback<Boolean> asyncCallback);
 
 	void getSessionData(AsyncCallback<AppSessionDataDTO> initilizeCalback);
 

@@ -69,5 +69,11 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 		ServiceAreaHandlerTemplate handler = HandlerFactory.newServiceAreaHandler(this.getSessionDataObject());
 		return handler.getSiteServiceAreas(id);
 	}
+	@Override
+	public boolean recoverPassword(String email) throws SimpleException,
+			FieldException {
+		RecoverPasswordHandlerTemplate handler = HandlerFactory.newRecoverPasswordHandler(this.getSessionDataObject());
+		return handler.recoverPassword(email);
+	}
 
 }
