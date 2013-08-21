@@ -149,9 +149,9 @@ public class LoginUi extends EventDrivenComposite {
 	}
 
 	private void showErrors() {
-		if(this.LOGINUI.equalsIgnoreCase(getCurrentChannel())){
+		if(LoginUi.LOGINUI.equalsIgnoreCase(getCurrentChannel())){
 			this.loginError.setVisible(true);
-		}else if(this.PASSWORDRESETUI.equalsIgnoreCase(getCurrentChannel())){
+		}else if(LoginUi.PASSWORDRESETUI.equalsIgnoreCase(getCurrentChannel())){
 			this.passwordResetError.setVisible(true);
 		}
 		

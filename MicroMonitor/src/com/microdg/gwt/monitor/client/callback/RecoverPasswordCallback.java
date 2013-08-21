@@ -4,7 +4,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.view.login.LoginUi;
 import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
-import com.microdg.gwt.monitor.shared.dto.FieldErrorDTO;
 import com.microdg.gwt.monitor.shared.dto.GeneralErrorDTO;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
