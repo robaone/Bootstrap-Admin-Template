@@ -2,13 +2,18 @@ package com.microdg.gwt.monitor.client.view.main;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventDrivenComposite;
@@ -29,12 +34,17 @@ public class MainLayoutUi extends EventDrivenComposite {
 	@UiField InlineLabel lastAccessDate;
 	@UiField Image profileImage;
 	@UiField SimplePanel content;
+	@UiField Button searchButton;
+	@UiField TextBox searchBox;
 	
 	public MainLayoutUi() {
 		initWidget(uiBinder.createAndBindUi(this));
 		profileImage.setAltText("User");
 		profileImage.setUrl("micromonitor/assets/img/user.gif");
 		brand.setHref("#home");
+		/* id="searchBtn" type="submit" */
+		searchButton.getElement().setId("searchBtn");
+		searchBox.getElement().setAttribute("placeholder","Live search..");
 		bind();
 	}
 	public void setBrand(String string) {
@@ -64,6 +74,11 @@ public class MainLayoutUi extends EventDrivenComposite {
 	public SimplePanel getContentPanel() {
 		return this.content;
 	}
+	@UiHandler("searchButton")
+	protected void handleSearch(ClickEvent e){
+		Window.alert("searching "+searchBox.getText());
+	}
+	
 	@Override
 	public void handleEvent(String command, Widget message) {
 		if(ComposeEvent.REPLACE.equalsIgnoreCase(command)){

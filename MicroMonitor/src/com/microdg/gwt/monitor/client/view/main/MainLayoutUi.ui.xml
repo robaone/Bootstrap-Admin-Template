@@ -87,12 +87,12 @@
 										<i class="icon-sort"></i>
 									</a>
 									<!-- The global search form -->
-									<form class="main-search">
-										<input class="input-block-level" type="text"
-											placeholder="Live search.."></input>
-										<button id="searchBtn" type="submit" class="btn btn-inverse">
+									<form class="main-search" action="javascript:void(0)">
+										<g:TextBox styleName="input-block-level" ui:field="searchBox"
+											></g:TextBox>
+										<g:Button ui:field="searchButton" styleName="btn btn-inverse">
 											<i class="icon-search"></i>
-										</button>
+										</g:Button>
 									</form>
 								</div>
 							</div>
