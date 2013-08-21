@@ -1,8 +1,9 @@
-package com.microdg.gwt.monitor.server.impl;
+package com.microdg.gwt.monitor.client.callback;
 
-import com.microdg.gwt.monitor.server.RecoverPasswordHandlerTemplate;
 import com.microdg.gwt.monitor.shared.FieldException;
-import com.microdg.gwt.monitor.shared.SimpleException;
+import com.microdg.gwt.monitor.shared.dto.FieldErrorDTO;
+import com.robaone.gwt.eventbus.client.EventBus;
+import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 
 /**
  * <pre>   Copyright 2013 Ansel Robateau
@@ -22,20 +23,15 @@ import com.microdg.gwt.monitor.shared.SimpleException;
  * @author Ansel
  *
  */
-public class RecoverPasswordHandler implements RecoverPasswordHandlerTemplate {
+public class FieldErrors {
 
-	@Override
-	public boolean recoverPassword(String email) throws SimpleException,
-			FieldException {
-		if("error".equalsIgnoreCase(email)){
-			throw new SimpleException("General error");
-		}else if(!"test@domain.com".equalsIgnoreCase(email)){
-			FieldException exception = new FieldException();
-			exception.addError("email", "Invalid Email");
-			throw exception;
-		}else{
-			return true;
+	public static void populate(Throwable caught, String ui) {
+		FieldException fe = (FieldException)caught;
+		for(int i = 0; i < fe.getFieldErrorCount();i++){
+			FieldErrorDTO error = new FieldErrorDTO(fe.getFields()[i],fe.getFieldError(fe.getFields()[i]));
+			EventBus.handleObjectEvent(new ObjectChannelEvent(ui,error));
 		}
+
 	}
 
 }

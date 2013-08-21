@@ -1,6 +1,13 @@
 package com.microdg.gwt.monitor.client.callback;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.microdg.gwt.monitor.client.view.login.LoginUi;
+import com.microdg.gwt.monitor.shared.FieldException;
+import com.microdg.gwt.monitor.shared.SimpleException;
+import com.microdg.gwt.monitor.shared.dto.FieldErrorDTO;
+import com.microdg.gwt.monitor.shared.dto.GeneralErrorDTO;
+import com.robaone.gwt.eventbus.client.EventBus;
+import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 
 /**
  * <pre>   Copyright 2013 Ansel Robateau
@@ -24,14 +31,24 @@ public class RecoverPasswordCallback implements AsyncCallback<Boolean> {
 
 	@Override
 	public void onFailure(Throwable caught) {
-		// TODO Auto-generated method stub
-
+		if(caught instanceof SimpleException){
+			GeneralErrorDTO error = new GeneralErrorDTO(caught.getMessage());
+			EventBus.handleObjectEvent(new ObjectChannelEvent(LoginUi.PASSWORDRESETUI,error));
+		}else if(caught instanceof FieldException){
+			String ui = LoginUi.PASSWORDRESETUI;
+			FieldErrors.populate(caught, ui);
+		}
 	}
+
+	
 
 	@Override
 	public void onSuccess(Boolean result) {
-		// TODO Auto-generated method stub
-
+		if(result){
+			EventBus.handleObjectEvent(new ObjectChannelEvent("password-reset-result",result));
+		}else{
+			EventBus.handleObjectEvent(new ObjectChannelEvent(LoginUi.PASSWORDRESETUI,new GeneralErrorDTO("Reset failed")));
+		}
 	}
 
 }

@@ -21,13 +21,15 @@ import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 
 public class LoginUi extends EventDrivenComposite {
 
+	public static final String LOGINUI = "loginui";
+	public static final String PASSWORDRESETUI = "passwordresetui";
 	private static LoginUiUiBinder uiBinder = GWT.create(LoginUiUiBinder.class);
 
 	interface LoginUiUiBinder extends UiBinder<Widget, LoginUi> {
 	}
 
 	public LoginUi() {
-		this.setChannels("loginui passwordresetui");
+		this.setChannels(LOGINUI+" "+PASSWORDRESETUI);
 		initWidget(uiBinder.createAndBindUi(this));
 		username.getElement().setAttribute("placeholder", "Username");
 		password.getElement().setAttribute("placeholder", "Password");
@@ -80,10 +82,8 @@ public class LoginUi extends EventDrivenComposite {
 	void onRecoverClick(ClickEvent e){
 		this.hideErrors();
 		String email_string = email.getText();
-		LoginInfoDTO logininfo = new LoginInfoDTO();
-		logininfo.setEmail(email_string);
 		
-		ObjectChannelEvent event = new ObjectChannelEvent("recover-password",logininfo); 
+		ObjectChannelEvent event = new ObjectChannelEvent("recover-password",email_string); 
 		EventBus.handleObjectEvent(event);
 	}
 
@@ -149,7 +149,12 @@ public class LoginUi extends EventDrivenComposite {
 	}
 
 	private void showErrors() {
-		this.loginError.setVisible(true);
+		if(this.LOGINUI.equalsIgnoreCase(getCurrentChannel())){
+			this.loginError.setVisible(true);
+		}else if(this.PASSWORDRESETUI.equalsIgnoreCase(getCurrentChannel())){
+			this.passwordResetError.setVisible(true);
+		}
+		
 	}
 	
 	private void hideErrors() {
@@ -176,10 +181,10 @@ public class LoginUi extends EventDrivenComposite {
 	}
 
 	private void handleError(GeneralErrorDTO error) {
-		if("loginui".equalsIgnoreCase(this.getCurrentChannel())){
+		if(LOGINUI.equalsIgnoreCase(this.getCurrentChannel())){
 			this.generalError.setVisible(true);
 			this.generalErrorText.setText(error.getError());
-		}else if("passwordresetui".equalsIgnoreCase(this.getCurrentChannel())){
+		}else if(PASSWORDRESETUI.equalsIgnoreCase(this.getCurrentChannel())){
 			this.handleResetError(error);
 		}
 	}
