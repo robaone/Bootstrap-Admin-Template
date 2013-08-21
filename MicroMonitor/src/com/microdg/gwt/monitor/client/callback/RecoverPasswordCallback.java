@@ -45,7 +45,7 @@ public class RecoverPasswordCallback implements AsyncCallback<Boolean> {
 	@Override
 	public void onSuccess(Boolean result) {
 		if(result){
-			EventBus.handleObjectEvent(new ObjectChannelEvent("password-reset-result",result));
+			EventBus.handleObjectEvent(new ObjectChannelEvent("recover-password-success",result));
 		}else{
 			EventBus.handleObjectEvent(new ObjectChannelEvent(LoginUi.PASSWORDRESETUI,new GeneralErrorDTO("Reset failed")));
 		}

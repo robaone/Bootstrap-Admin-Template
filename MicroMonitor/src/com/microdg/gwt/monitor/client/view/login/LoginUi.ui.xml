@@ -15,7 +15,7 @@
 			</div>
 			<div class="tab-content">
 				<div id="login" class="tab-pane active">
-					<form class="form-signin">
+					<form class="form-signin" action="javascript:void(0)">
 						<p class="muted text-center">
 							Enter your username and password
 						</p>
@@ -30,7 +30,7 @@
 					</form>
 				</div>
 				<div id="forgot" class="tab-pane">
-					<form class="form-signin">
+					<form class="form-signin" action="javascript:void(0)">
 						<p class="muted text-center">
 							Enter your valid e-mail
 						</p>
@@ -45,7 +45,7 @@
 					</form>
 				</div>
 				<div id="signup" class="tab-pane">
-					<form class="form-signin">
+					<form class="form-signin" action="javascript:void(0)">
 						<g:TextBox ui:field="registerUsername" styleName="input-block-level"/>
 						<g:TextBox ui:field="registerEmail" styleName="input-block-level" />
 						<g:PasswordTextBox ui:field="registerPassword" styleName="input-block-level" />

@@ -13,6 +13,10 @@ public class ApplicationEventFactory {
 			return new ApplicationLogoutHandler();
 		}else if("recover-password".equals(channel)){
 			return new ApplicationRecoverPasswordHandler();
+		}else if("recover-password-success".equals(channel)){
+			return new ApplicationRecoverPasswordSuccessHandler();
+		}else if("register-user".equals(channel)){
+			return new ApplicationRegisterUserHandler();
 		}else if("set-brand".equals(channel)){
 			return new ApplicationBrandHandler();
 		}else if("set-page-name".equals(channel)){
