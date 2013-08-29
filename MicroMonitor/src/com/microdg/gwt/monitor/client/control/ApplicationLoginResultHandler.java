@@ -4,6 +4,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.MicroMonitor;
+import com.microdg.gwt.monitor.client.view.login.LoginUi;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
@@ -26,6 +27,7 @@ public class ApplicationLoginResultHandler implements ApplicationEventHandler {
 					public void onSuccess(AppSessionDataDTO result) {
 						MicroMonitor.setAppSessionData(result);
 						if(result.getProfile() != null){
+							EventBus.handleEvent(LoginUi.LOGINUI, ComposeEvent.CLEAR,null);
 							EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
 						}else{
 							EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getLoginPage());

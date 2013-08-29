@@ -15,6 +15,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.microdg.gwt.monitor.shared.dto.FieldErrorDTO;
 import com.microdg.gwt.monitor.shared.dto.GeneralErrorDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
+import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.EventDrivenComposite;
 import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
@@ -104,20 +105,41 @@ public class LoginUi extends EventDrivenComposite {
 
 	@Override
 	public void handleEvent(String command, Widget message) {
-		// TODO Auto-generated method stub
-		
+		if(ComposeEvent.CLEAR.equalsIgnoreCase(command)){
+			clearAllFields();
+		}
+	}
+
+	private void clearAllFields() {
+		this.username.setText("");
+		this.password.setText("");
+		this.email.setText("");
+		this.registerEmail.setText("");
+		this.registerPassword.setText("");
+		this.registerUsername.setText("");
 	}
 
 	@Override
 	public void handleEvent(JavaScriptObject message) {
-		// TODO Auto-generated method stub
-		
+		String command = this.getCommand(message);
+		if(ComposeEvent.CLEAR.equalsIgnoreCase(command)){
+			this.clearAllFields();
+		}
 	}
+	
+	protected native String getCommand(JavaScriptObject message)/*-{
+		try{
+			return message.command;
+		}catch(Exception){
+			return "";
+		}
+	}-*/;
 
 	@Override
 	public void handleEvent(String command, Widget[] messages) {
-		// TODO Auto-generated method stub
-		
+		if(ComposeEvent.CLEAR.equals(command)){
+			this.clearAllFields();
+		}
 	}
 	
 	@Override
