@@ -20,8 +20,4 @@ public class FieldErrorDTO {
 		return this.error;
 	}
 
-	public String getFieldName() {
-		return this.field;
-	}
-
 }

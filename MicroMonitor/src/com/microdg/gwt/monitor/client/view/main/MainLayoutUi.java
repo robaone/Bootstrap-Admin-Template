@@ -76,7 +76,7 @@ public class MainLayoutUi extends EventDrivenComposite {
 	}
 	@UiHandler("searchButton")
 	protected void handleSearch(ClickEvent e){
-		Window.alert("searching "+searchBox.getText());
+		Window.alert("searching "+searchBox.getText()); //TODO: Implement event
 	}
 	
 	@Override

@@ -3,7 +3,7 @@ package com.microdg.gwt.monitor.client.control;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.microdg.gwt.monitor.client.MicroMonitor;
 
-public class ApplicationBrandHandler implements ApplicationEventHandler {
+public class ApplicationBrandHandler implements ApplicationEventHandler<Object> {
 
 	@Override
 	public void handle(Object message) {

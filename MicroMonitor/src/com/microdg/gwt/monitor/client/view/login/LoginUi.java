@@ -168,13 +168,13 @@ public class LoginUi extends EventDrivenComposite {
 	}
 
 	private void handleError(FieldErrorDTO message) {
-		if("username".equalsIgnoreCase(message.getFieldName())){
+		if("username".equalsIgnoreCase(message.getField())){
 			this.usernameError.setVisible(true);
 			this.usernameErrorText.setText(message.getError());
-		}else if("password".equalsIgnoreCase(message.getFieldName())){
+		}else if("password".equalsIgnoreCase(message.getField())){
 			this.passwordError.setVisible(true);
 			this.passwordErrorText.setText(message.getError());
-		}else if("email".equalsIgnoreCase(message.getFieldName())){
+		}else if("email".equalsIgnoreCase(message.getField())){
 			this.emailError.setVisible(true);
 			this.emailErrorText.setText(message.getError());
 		}

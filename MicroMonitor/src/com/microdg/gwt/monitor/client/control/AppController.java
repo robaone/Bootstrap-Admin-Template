@@ -45,6 +45,7 @@ public class AppController extends EventDrivenController {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void handleEvent(JavaScriptObject message) {
 		System.out.println("AppController: "+message.toString());
@@ -56,6 +57,7 @@ public class AppController extends EventDrivenController {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void handleObjectEvent(Object message) {
 		System.out.println("AppController: "+message.getClass().getName()+": "+message.toString());
