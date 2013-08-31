@@ -47,7 +47,11 @@ public class ApplicationGeneralErrorHandler implements ApplicationEventHandler<S
 			}
 			
 		});
-		dialog.show();
+		dialog.setGlassEnabled(true);
+		dialog.getElement().setAttribute("style", "background-color:white");
+		dialog.setAnimationEnabled(true);
+		dialog.setWidget(vp);
+		dialog.center();
 	}
 
 	@Override
