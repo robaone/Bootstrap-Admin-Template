@@ -7,6 +7,7 @@ import com.microdg.gwt.monitor.client.callback.GetServceAreasCallback;
 import com.microdg.gwt.monitor.client.callback.InitilizeCalback;
 import com.microdg.gwt.monitor.client.callback.SaveKeywordCallback;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
+import com.microdg.gwt.monitor.shared.dto.ClientDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
@@ -34,5 +35,7 @@ public interface DataServiceAsync {
 
 	void getSiteServiceAreas(int id,
 			AsyncCallback<ServiceAreaDTO[]> getServceAreasCallback);
+
+	void getClients(AsyncCallback<ClientDTO[]> asyncCallback);
 
 }

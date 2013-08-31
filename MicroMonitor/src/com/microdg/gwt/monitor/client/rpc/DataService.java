@@ -5,6 +5,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
+import com.microdg.gwt.monitor.shared.dto.ClientDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
@@ -30,5 +31,7 @@ public interface DataService extends RemoteService {
 	ServiceAreaDTO[] getSiteServiceAreas(int id);
 
 	boolean recoverPassword(String email) throws SimpleException, FieldException;
+
+	ClientDTO[] getClients() throws SimpleException;
 
 }

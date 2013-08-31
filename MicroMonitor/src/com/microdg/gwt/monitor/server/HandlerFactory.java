@@ -1,6 +1,7 @@
 package com.microdg.gwt.monitor.server;
 
 import com.microdg.gwt.monitor.server.impl.AppSessionHandler;
+import com.microdg.gwt.monitor.server.impl.ClientHandler;
 import com.microdg.gwt.monitor.server.impl.KeywordHandler;
 import com.microdg.gwt.monitor.server.impl.LoginHandler;
 import com.microdg.gwt.monitor.server.impl.LogoutHandler;
@@ -41,6 +42,11 @@ public class HandlerFactory {
 	public static RecoverPasswordHandlerTemplate newRecoverPasswordHandler(
 			SessionData sessionDataObject) {
 		return new RecoverPasswordHandler();
+	}
+
+	public static ClientHandlerTemplate newClientHandler(
+			SessionData sessionDataObject) {
+		return new ClientHandler();
 	}
 
 }

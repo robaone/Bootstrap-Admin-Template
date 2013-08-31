@@ -2,9 +2,13 @@ package com.microdg.gwt.monitor.client.control;
 
 public class ApplicationEventFactory {
 
+	public static final String APP_ERROR = "app-error";
+
 	public static ApplicationEventHandler newInstance(String channel) {
 		if("initialize".equals(channel)){
 			return new ApplicationInitializeHandler();
+		}else if(APP_ERROR.equals(channel)){
+			return new ApplicationGeneralErrorHandler();
 		}else if("login".equals(channel)){
 			return new ApplicationLoginHandler();
 		}else if("login-result".equals(channel)){

@@ -8,6 +8,7 @@ import com.microdg.gwt.monitor.client.rpc.DataService;
 import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
+import com.microdg.gwt.monitor.shared.dto.ClientDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
@@ -74,6 +75,11 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 			FieldException {
 		RecoverPasswordHandlerTemplate handler = HandlerFactory.newRecoverPasswordHandler(this.getSessionDataObject());
 		return handler.recoverPassword(email);
+	}
+	@Override
+	public ClientDTO[] getClients() throws SimpleException {
+		ClientHandlerTemplate handler = HandlerFactory.newClientHandler(this.getSessionDataObject());
+		return handler.getClients();
 	}
 
 }

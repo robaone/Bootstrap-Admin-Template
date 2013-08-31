@@ -4,6 +4,7 @@ import com.microdg.gwt.monitor.client.control.AppController;
 import com.microdg.gwt.monitor.client.history.ApplicationHistory;
 import com.microdg.gwt.monitor.client.rpc.DataService;
 import com.microdg.gwt.monitor.client.rpc.DataServiceAsync;
+import com.microdg.gwt.monitor.client.view.ClientsUi;
 import com.microdg.gwt.monitor.client.view.login.LoginUi;
 import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
@@ -39,6 +40,7 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	private static DockLayoutPanel mainLayout;
 	private static ScrollPanel scrollPanel = new ScrollPanel();
 	private static LoginUi login;
+	private static ClientsUi clientList;
 
 	private static AppSessionDataDTO sessionData;
 	@SuppressWarnings("unused")
@@ -51,6 +53,7 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 		RootLayoutPanel.get().add(scrollPanel);
 		mainLayout = buildMainLayout();
 		login = buildLoginLayout();
+		this.setClientList(new ClientsUi());
 		initAppController();
 		EventBus.handleObjectEvent(new ObjectChannelEvent("initialize","App"));
 		
@@ -119,5 +122,11 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	}
 	public static AppSessionDataDTO getAppSessionData(){
 		return sessionData;
+	}
+	public static ClientsUi getClientList() {
+		return clientList;
+	}
+	public static void setClientList(ClientsUi clientList) {
+		MicroMonitor.clientList = clientList;
 	}
 }
