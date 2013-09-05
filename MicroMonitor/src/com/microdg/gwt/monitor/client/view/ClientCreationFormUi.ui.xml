@@ -8,6 +8,33 @@
 	</ui:style>
 	<g:HTMLPanel>
 		<div class="hero">Client Creation Form</div>
+		<g:VerticalPanel width="100%" ui:field="fieldErrors"></g:VerticalPanel>
+		<g:VerticalPanel width="100%">
+			<g:FlowPanel>
+				<g:Label>Business Name:</g:Label>
+				<g:TextBox ui:field="businessName"></g:TextBox>
+			</g:FlowPanel>
+			<g:FlowPanel width="100%">
+				<g:Label>Address:</g:Label>
+				<g:TextBox ui:field="businessAddress"></g:TextBox>
+			</g:FlowPanel>
+			<g:FlowPanel width="100%">
+				<g:Label>Address Line 2:</g:Label>
+				<g:TextBox ui:field="businessAddress2"></g:TextBox>
+			</g:FlowPanel>
+			<g:FlowPanel width="100%">
+				<g:Label>City:</g:Label>
+				<g:TextBox ui:field="businessCity"></g:TextBox>
+			</g:FlowPanel>
+			<g:FlowPanel width="100%">
+				<g:Label>State:</g:Label>
+				<g:TextBox ui:field="businessState"></g:TextBox>
+			</g:FlowPanel>
+			<g:FlowPanel width="100%">
+				<g:Label>Zip:</g:Label>
+				<g:TextBox ui:field="businessZip"></g:TextBox>
+			</g:FlowPanel>
+		</g:VerticalPanel>
 		<g:Button styleName="{style.important}" ui:field="button" >Submit</g:Button>
 	</g:HTMLPanel>
 </ui:UiBinder> 

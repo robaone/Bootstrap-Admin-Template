@@ -39,6 +39,8 @@ public class ApplicationEventFactory {
 			return new ApplicationServiceAreaViewHandler();
 		}else if("site:save-servicearea".equalsIgnoreCase(channel)){
 			return new ApplicationSaveServiceAreaHandler();
+		}else if("client:save".equalsIgnoreCase(channel)){
+			return new ApplicationSaveClientHandler();
 		}
 		return null;
 	}

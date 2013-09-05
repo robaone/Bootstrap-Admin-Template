@@ -22,7 +22,7 @@ import com.google.gwt.user.client.rpc.IsSerializable;
  */
 public class ClientDTO implements IsSerializable {
 	private String name;
-	private int clientId;
+	private Integer clientId;
 
 	public String getName() {
 		return name;
@@ -32,11 +32,11 @@ public class ClientDTO implements IsSerializable {
 		this.name = name;
 	}
 
-	public int getClientId() {
+	public Integer getClientId() {
 		return clientId;
 	}
 
-	public void setClientId(int clientId) {
+	public void setClientId(Integer clientId) {
 		this.clientId = clientId;
 	}
 }

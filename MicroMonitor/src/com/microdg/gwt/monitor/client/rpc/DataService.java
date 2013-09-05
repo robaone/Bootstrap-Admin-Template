@@ -34,4 +34,6 @@ public interface DataService extends RemoteService {
 
 	ClientDTO[] getClients() throws SimpleException;
 
+	ClientDTO saveClient(ClientDTO message) throws SimpleException, FieldException;
+
 }

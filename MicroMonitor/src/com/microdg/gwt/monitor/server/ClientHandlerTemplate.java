@@ -1,5 +1,6 @@
 package com.microdg.gwt.monitor.server;
 
+import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.ClientDTO;
 
@@ -24,5 +25,7 @@ import com.microdg.gwt.monitor.shared.dto.ClientDTO;
 public interface ClientHandlerTemplate {
 
 	ClientDTO[] getClients() throws SimpleException;
+
+	ClientDTO saveClient(ClientDTO message) throws SimpleException, FieldException;
 
 }

@@ -38,4 +38,6 @@ public interface DataServiceAsync {
 
 	void getClients(AsyncCallback<ClientDTO[]> asyncCallback);
 
+	void saveClient(ClientDTO message, AsyncCallback<ClientDTO> asyncCallback);
+
 }
