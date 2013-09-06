@@ -7,7 +7,7 @@
 		}
 	</ui:style>
 	<g:HTMLPanel>
-		Hello,<br/>
+		<h2>Client: <g:InlineLabel ui:field="name"></g:InlineLabel></h2>
 		This is the client view.
 		<g:Button styleName="{style.important}" ui:field="button" >Close</g:Button>
 	</g:HTMLPanel>

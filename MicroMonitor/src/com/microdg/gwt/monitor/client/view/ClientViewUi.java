@@ -1,6 +1,7 @@
 package com.microdg.gwt.monitor.client.view;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -10,10 +11,14 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
+import com.microdg.gwt.monitor.shared.dto.ClientDTO;
+import com.robaone.gwt.eventbus.client.EventDrivenComposite;
 
-public class ClientViewUi extends Composite implements HasText {
+public class ClientViewUi extends EventDrivenComposite implements HasText {
 
+	public static final String CLIENTVIEWUI = "clientviewui";
 	private static ClientViewUiUiBinder uiBinder = GWT
 			.create(ClientViewUiUiBinder.class);
 
@@ -22,15 +27,13 @@ public class ClientViewUi extends Composite implements HasText {
 
 	public ClientViewUi() {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.setChannels(ClientViewUi.CLIENTVIEWUI);
+		bind();
 	}
-
+	private ClientDTO client;
 	@UiField
 	Button button;
-
-	public ClientViewUi(String firstName) {
-		initWidget(uiBinder.createAndBindUi(this));
-		button.setText(firstName);
-	}
+	@UiField InlineLabel name;
 
 	@UiHandler("button")
 	void onClick(ClickEvent e) {
@@ -43,6 +46,36 @@ public class ClientViewUi extends Composite implements HasText {
 
 	public String getText() {
 		return button.getText();
+	}
+
+	@Override
+	public void handleEvent(String command, Widget message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handleEvent(JavaScriptObject message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handleEvent(String command, Widget[] messages) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handleObjectEvent(Object message) {
+		if(message instanceof ClientDTO){
+			setClient((ClientDTO)message);
+		}
+	}
+
+	private void setClient(ClientDTO message) {
+		this.client = message;
+		this.name.setText(this.client.getName());
 	}
 
 }

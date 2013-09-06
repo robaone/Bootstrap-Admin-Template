@@ -57,4 +57,12 @@ public class ClientHandler implements ClientHandlerTemplate {
 		return message;
 	}
 
+	@Override
+	public ClientDTO getClient(Integer clientId) throws SimpleException {
+		ClientDTO savedClient = new ClientDTO();
+		savedClient.setClientId(clientId);
+		savedClient.setName("Saved Client Record");
+		return savedClient;
+	}
+
 }

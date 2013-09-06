@@ -36,4 +36,6 @@ public interface DataService extends RemoteService {
 
 	ClientDTO saveClient(ClientDTO message) throws SimpleException, FieldException;
 
+	ClientDTO getClient(Integer clientId) throws SimpleException;
+
 }
