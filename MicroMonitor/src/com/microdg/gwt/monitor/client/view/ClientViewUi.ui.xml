@@ -1,6 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:u="urn:import:com.robaone.gwt.eventbus.client.widget">
 	<ui:style>
 		.important {
 			font-weight: bold;
@@ -8,7 +9,10 @@
 	</ui:style>
 	<g:HTMLPanel>
 		<h2>Client: <g:InlineLabel ui:field="name"></g:InlineLabel></h2>
-		This is the client view.
+		<div>This is the client view.</div>
 		<g:Button styleName="{style.important}" ui:field="button" >Close</g:Button>
+		<div>This is the list of employees</div>
+		<g:Button styleName="btn btn-primary" ui:field="createEmployee">New Employee</g:Button>
+		<u:DynamicTableWidget ui:field="employeeList"></u:DynamicTableWidget>		
 	</g:HTMLPanel>
 </ui:UiBinder> 

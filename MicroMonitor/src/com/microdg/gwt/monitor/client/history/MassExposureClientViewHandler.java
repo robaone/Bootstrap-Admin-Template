@@ -37,7 +37,7 @@ public class MassExposureClientViewHandler implements ApplicationHistoryHandler 
 	}
 
 	public static boolean is(String page) {
-		RegExp p = RegExp.compile("massexposure[/]clients[/][0-9]+");
+		RegExp p = RegExp.compile("^massexposure[/]clients[/][0-9]+$");
 		return p.test(page);
 	}
 

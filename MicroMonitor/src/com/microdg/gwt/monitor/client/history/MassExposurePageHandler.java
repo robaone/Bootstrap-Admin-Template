@@ -24,10 +24,6 @@ public class MassExposurePageHandler implements ApplicationHistoryHandler {
 	public void handle(String[] parsed) {
 		EventBus.handleObjectEvent(new ObjectChannelEvent("set-page-name","Mass Exposure"));
 		EventBus.handleEvent("root", ComposeEvent.REPLACE, MicroMonitor.getMainLayoutUi());
-		String subpage = "";
-		if(parsed.length > 1){
-			subpage = parsed[1];
-		}
 		ApplicationHistoryHandler handler;
 		try {
 			handler = ApplicationHistoryHandlerFactory.newInstance(ArrayTools.toString(parsed, "/"));
@@ -36,23 +32,6 @@ public class MassExposurePageHandler implements ApplicationHistoryHandler {
 			ErrorPageHandler error = new ErrorPageHandler();
 			error.handle(e);
 		}
-		
-		/*
-			if(parsed[1].equalsIgnoreCase("new")){
-				renderNewSiteForm();
-			}else if(parsed[1].equalsIgnoreCase("view")){
-				if(parsed.length == 3){
-					renderSiteView(Integer.parseInt(parsed[2]));
-				}else if(parsed.length == 5){
-					if(parsed[3].equalsIgnoreCase("keyword")){
-						renderNewKeywordForm(Integer.parseInt(parsed[2]));
-					}else if(parsed[3].equalsIgnoreCase("servicearea")){
-						renderNewServiceAreaForm(Integer.parseInt(parsed[2]));
-					}
-				}
-			}
-		}
-		 */
 	}
 
 	private void renderNewServiceAreaForm(int parseInt) {
