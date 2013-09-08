@@ -3,6 +3,7 @@ package com.microdg.gwt.monitor.server.impl;
 import java.util.ArrayList;
 
 import com.microdg.gwt.monitor.server.ClientHandlerTemplate;
+import com.microdg.gwt.monitor.server.SessionData;
 import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.FieldVerifier;
 import com.microdg.gwt.monitor.shared.SimpleException;
@@ -27,6 +28,10 @@ import com.microdg.gwt.monitor.shared.dto.ClientDTO;
  *
  */
 public class ClientHandler implements ClientHandlerTemplate {
+
+	public ClientHandler(SessionData sessionDataObject) {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public ClientDTO[] getClients() throws SimpleException {

@@ -6,6 +6,7 @@ import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.ClientDTO;
+import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
@@ -37,5 +38,7 @@ public interface DataService extends RemoteService {
 	ClientDTO saveClient(ClientDTO message) throws SimpleException, FieldException;
 
 	ClientDTO getClient(Integer clientId) throws SimpleException;
+
+	EmployeeDTO[] getClientEmployees(Integer clientId) throws SimpleException;
 
 }

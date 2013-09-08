@@ -9,6 +9,7 @@ import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.ClientDTO;
+import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
@@ -91,6 +92,12 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 	public ClientDTO getClient(Integer clientId) throws SimpleException {
 		ClientHandlerTemplate handler = HandlerFactory.newClientHandler(getSessionDataObject());
 		return handler.getClient(clientId);
+	}
+	@Override
+	public EmployeeDTO[] getClientEmployees(Integer clientId)
+			throws SimpleException {
+		ClientEmployeeHandlerTemplate handler = HandlerFactory.newClientEmployeeHandler(getSessionDataObject());
+		return handler.getClientEmployees(clientId);
 	}
 
 }

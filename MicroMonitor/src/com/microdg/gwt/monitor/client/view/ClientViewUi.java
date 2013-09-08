@@ -10,9 +10,12 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.microdg.gwt.monitor.shared.dto.ClientDTO;
+import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 import com.robaone.gwt.eventbus.client.EventDrivenComposite;
+import com.robaone.gwt.eventbus.client.widget.DynamicTableRowWidget;
 import com.robaone.gwt.eventbus.client.widget.DynamicTableWidget;
 
 public class ClientViewUi extends EventDrivenComposite implements HasText {
@@ -27,7 +30,7 @@ public class ClientViewUi extends EventDrivenComposite implements HasText {
 	public ClientViewUi() {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.setChannels(ClientViewUi.CLIENTVIEWUI);
-		String[] headers = {"Employee Name","Email Address","Role",""};
+		String[] headers = {"Employee Name","Email Address","Role(s)",""};
 		employeeList.setHeaders(headers);
 		employeeList.setWidth("100%");
 		bind();
@@ -77,10 +80,38 @@ public class ClientViewUi extends EventDrivenComposite implements HasText {
 	public void handleObjectEvent(Object message) {
 		if(message instanceof ClientDTO){
 			setClient((ClientDTO)message);
+		}else if(message instanceof EmployeeDTO[]){
+			setEmployees((EmployeeDTO[])message);
 		}
 	}
 
+	private void setEmployees(EmployeeDTO[] message) {
+		employeeList.clear();
+		for(int i = 0; i < message.length;i++){
+			DynamicTableRowWidget row = new DynamicTableRowWidget();
+			Widget[] rowContents = new Widget[4];
+			rowContents[0] = new Label(message[i].getName());
+			rowContents[1] = new Label(message[i].getEmailAddress());
+			rowContents[2] = new Label(formatRoles(message[i].getRoles()));
+			rowContents[3] = new Button("View");
+			row.setContent(rowContents);
+			employeeList.appendRow(row);
+		}
+	}
+	protected String formatRoles(String[] roles) {
+		StringBuffer buffer = new StringBuffer();
+		for(int i = 0; i < roles.length;i++){
+			if(i > 0){
+				buffer.append(",");
+			}
+			buffer.append(roles[i]);
+		}
+		return buffer.toString();
+	}
 	private void setClient(ClientDTO message) {
+		if(this.client != null && this.client.getClientId() != message.getClientId()){
+			this.employeeList.clear();
+		}
 		this.client = message;
 		this.name.setText(this.client.getName());
 	}

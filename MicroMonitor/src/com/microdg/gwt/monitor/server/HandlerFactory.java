@@ -1,6 +1,7 @@
 package com.microdg.gwt.monitor.server;
 
 import com.microdg.gwt.monitor.server.impl.AppSessionHandler;
+import com.microdg.gwt.monitor.server.impl.ClientEmployeeHandler;
 import com.microdg.gwt.monitor.server.impl.ClientHandler;
 import com.microdg.gwt.monitor.server.impl.KeywordHandler;
 import com.microdg.gwt.monitor.server.impl.LoginHandler;
@@ -46,7 +47,12 @@ public class HandlerFactory {
 
 	public static ClientHandlerTemplate newClientHandler(
 			SessionData sessionDataObject) {
-		return new ClientHandler();
+		return new ClientHandler(sessionDataObject);
+	}
+
+	public static ClientEmployeeHandlerTemplate newClientEmployeeHandler(
+			SessionData sessionDataObject) {
+		return new ClientEmployeeHandler(sessionDataObject);
 	}
 
 }

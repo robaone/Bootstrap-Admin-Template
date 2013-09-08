@@ -8,6 +8,7 @@ import com.microdg.gwt.monitor.client.callback.InitilizeCalback;
 import com.microdg.gwt.monitor.client.callback.SaveKeywordCallback;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.ClientDTO;
+import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 import com.microdg.gwt.monitor.shared.dto.KeywordDTO;
 import com.microdg.gwt.monitor.shared.dto.LoginInfoDTO;
 import com.microdg.gwt.monitor.shared.dto.ServiceAreaDTO;
@@ -41,5 +42,8 @@ public interface DataServiceAsync {
 	void saveClient(ClientDTO message, AsyncCallback<ClientDTO> asyncCallback);
 
 	void getClient(Integer clientId, AsyncCallback<ClientDTO> asyncCallback);
+
+	void getClientEmployees(Integer clientId,
+			AsyncCallback<EmployeeDTO[]> asyncCallback);
 
 }
