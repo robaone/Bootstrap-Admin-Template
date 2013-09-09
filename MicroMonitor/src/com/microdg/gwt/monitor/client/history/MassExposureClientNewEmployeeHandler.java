@@ -2,6 +2,9 @@ package com.microdg.gwt.monitor.client.history;
 
 import com.google.gwt.regexp.shared.RegExp;
 import com.google.gwt.user.client.Window;
+import com.microdg.gwt.monitor.client.MicroMonitor;
+import com.robaone.gwt.eventbus.client.ComposeEvent;
+import com.robaone.gwt.eventbus.client.EventBus;
 
 /**
  * <pre>   Copyright 2013 Ansel Robateau
@@ -26,7 +29,7 @@ public class MassExposureClientNewEmployeeHandler implements
 
 	@Override
 	public void handle(String[] parsed) {
-		Window.alert("New Client Employee");
+		EventBus.handleEvent("root-content", ComposeEvent.REPLACE, MicroMonitor.getClientEmployeeEditForm());
 	}
 
 	public static boolean is(String page) {

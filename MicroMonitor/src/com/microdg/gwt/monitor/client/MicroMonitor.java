@@ -5,6 +5,7 @@ import com.microdg.gwt.monitor.client.history.ApplicationHistory;
 import com.microdg.gwt.monitor.client.rpc.DataService;
 import com.microdg.gwt.monitor.client.rpc.DataServiceAsync;
 import com.microdg.gwt.monitor.client.view.ClientCreationFormUi;
+import com.microdg.gwt.monitor.client.view.ClientEmployeeEditFormUi;
 import com.microdg.gwt.monitor.client.view.ClientEmployeeViewUi;
 import com.microdg.gwt.monitor.client.view.ClientViewUi;
 import com.microdg.gwt.monitor.client.view.ClientsUi;
@@ -46,6 +47,7 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	private static ClientsUi clientList;
 	private static ClientCreationFormUi clientCreationForm;
 	private static ClientEmployeeViewUi clientEmployeeView;
+	private static ClientEmployeeEditFormUi clientEmployeeEditForm;
 	private static ClientViewUi clientView;
 	private static AppSessionDataDTO sessionData;
 	@SuppressWarnings("unused")
@@ -62,6 +64,7 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 		MicroMonitor.setClientCreationForm(new ClientCreationFormUi());
 		MicroMonitor.setClientView(new ClientViewUi());
 		MicroMonitor.setClientEmployeeView(new ClientEmployeeViewUi());
+		MicroMonitor.setClientEmployeeEditForm(new ClientEmployeeEditFormUi());
 		initAppController();
 		EventBus.handleObjectEvent(new ObjectChannelEvent("initialize","App"));
 		
@@ -154,5 +157,11 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	}
 	public static void setClientEmployeeView(ClientEmployeeViewUi clientEmployeeView) {
 		MicroMonitor.clientEmployeeView = clientEmployeeView;
+	}
+	public static ClientEmployeeEditFormUi getClientEmployeeEditForm() {
+		return clientEmployeeEditForm;
+	}
+	public static void setClientEmployeeEditForm(ClientEmployeeEditFormUi clientEmployeeEditForm) {
+		MicroMonitor.clientEmployeeEditForm = clientEmployeeEditForm;
 	}
 }
