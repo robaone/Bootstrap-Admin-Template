@@ -1,11 +1,12 @@
-package com.microdg.gwt.monitor.client.history;
+package com.microdg.gwt.monitor.client.control;
 
-import com.google.gwt.regexp.shared.RegExp;
-import com.google.gwt.user.client.Window;
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.MicroMonitor;
-import com.microdg.gwt.monitor.client.view.ClientEmployeeEditFormUi;
+import com.microdg.gwt.monitor.client.view.ClientViewUi;
 import com.microdg.gwt.monitor.shared.dto.ClientDTO;
+import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
 import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
@@ -28,13 +29,12 @@ import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
  * @author Ansel
  *
  */
-public class MassExposureClientNewEmployeeHandler implements
-		ApplicationHistoryHandler {
-	String[] parameters;
+public class ApplicationSaveClientEmployeHandler implements
+		ApplicationEventHandler<EmployeeDTO> {
+
 	@Override
-	public void handle(String[] parsed) {
-		this.setParameters(parsed);
-		MicroMonitor.dataService.getClient(getClientId(), new AsyncCallback<ClientDTO>(){
+	public void handle(EmployeeDTO message) {
+		MicroMonitor.dataService.saveClientEmployee(message,new AsyncCallback<EmployeeDTO>(){
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -42,23 +42,17 @@ public class MassExposureClientNewEmployeeHandler implements
 			}
 
 			@Override
-			public void onSuccess(ClientDTO result) {
-				EventBus.handleObjectEvent(new ObjectChannelEvent(ClientEmployeeEditFormUi.CLIENTEMPLOYEEEDITFORMUI,result));
-				EventBus.handleEvent("root-content", ComposeEvent.REPLACE, MicroMonitor.getClientEmployeeEditForm());
+			public void onSuccess(EmployeeDTO result) {
+				History.newItem("massexposure/clients/"+result.getClientId());
 			}
 			
 		});
 	}
-	protected void setParameters(String[] params){
-		this.parameters = params;
-	}
-	private Integer getClientId() {
-		return new Integer(this.parameters[1]);
-	}
 
-	public static boolean is(String page) {
-		RegExp p = RegExp.compile("^massexposure[/]clients[/][0-9]+/employee[/]new$");
-		return p.test(page);
+	@Override
+	public void handleJs(JavaScriptObject message) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

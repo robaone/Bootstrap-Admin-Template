@@ -41,4 +41,6 @@ public interface DataService extends RemoteService {
 
 	EmployeeDTO[] getClientEmployees(Integer clientId) throws SimpleException;
 
+	EmployeeDTO saveClientEmployee(EmployeeDTO message) throws SimpleException, FieldException;
+
 }

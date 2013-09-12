@@ -1,6 +1,7 @@
 package com.microdg.gwt.monitor.client.view;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -9,7 +10,13 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.microdg.gwt.monitor.shared.dto.ClientDTO;
+import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
+import com.robaone.gwt.eventbus.client.EventBus;
+import com.robaone.gwt.eventbus.client.EventDrivenComposite;
+import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
 
 /**
  * <pre>   Copyright 2013 Ansel Robateau
@@ -29,8 +36,8 @@ import com.google.gwt.user.client.ui.Widget;
  * @author Ansel
  *
  */
-public class ClientEmployeeEditFormUi extends Composite {
-
+public class ClientEmployeeEditFormUi extends EventDrivenComposite {
+	public static String CLIENTEMPLOYEEEDITFORMUI = "clientemployeeeditformui";
 	private static ClientEmployeeEditFormUiUiBinder uiBinder = GWT
 			.create(ClientEmployeeEditFormUiUiBinder.class);
 
@@ -40,15 +47,78 @@ public class ClientEmployeeEditFormUi extends Composite {
 
 	public ClientEmployeeEditFormUi() {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.setChannels(CLIENTEMPLOYEEEDITFORMUI);
+		bind();
 	}
 
 	@UiField
 	Button button;
+	@UiField TextBox employeeName;
+	@UiField TextBox employeeEmailAddr;
+	private ClientDTO client;
 
 
 	@UiHandler("button")
 	void onClick(ClickEvent e) {
-		Window.alert("Hello!");
+		EmployeeDTO employee = new EmployeeDTO();
+		employee.setClientId(this.getClient().getClientId());
+		employee.setName(this.employeeName.getText());
+		employee.setEmailAddress(this.employeeEmailAddr.getText());
+		employee.setRoles(this.getRoles());
+		EventBus.handleObjectEvent(new ObjectChannelEvent("client:save-employee",employee));
+	}
+
+
+	private String[] getRoles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void handleEvent(String command, Widget message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void handleEvent(JavaScriptObject message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void handleEvent(String command, Widget[] messages) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void handleObjectEvent(Object message) {
+		if(message instanceof EmployeeDTO){
+			this.setEmployee((EmployeeDTO) message);
+		}else if(message instanceof ClientDTO){
+			this.setClient((ClientDTO)message);
+		}
+	}
+
+
+	private void setClient(ClientDTO message) {
+		this.client = message;
+	}
+	
+	protected ClientDTO getClient(){
+		return this.client;
+	}
+
+
+	private void setEmployee(EmployeeDTO message) {
+		this.employeeName.setText(message.getName());
+		this.employeeEmailAddr.setText(message.getEmailAddress());
+		
 	}
 
 }

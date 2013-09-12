@@ -46,4 +46,7 @@ public interface DataServiceAsync {
 	void getClientEmployees(Integer clientId,
 			AsyncCallback<EmployeeDTO[]> asyncCallback);
 
+	void saveClientEmployee(EmployeeDTO message,
+			AsyncCallback<EmployeeDTO> asyncCallback);
+
 }

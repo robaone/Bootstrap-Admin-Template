@@ -2,6 +2,7 @@ package com.microdg.gwt.monitor.server.impl;
 
 import com.microdg.gwt.monitor.server.ClientEmployeeHandlerTemplate;
 import com.microdg.gwt.monitor.server.SessionData;
+import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 
@@ -39,6 +40,13 @@ public class ClientEmployeeHandler implements ClientEmployeeHandlerTemplate {
 		String[] roles = {"Owner","Operator"};
 		empl[0].setRoles(roles);
 		return empl;
+	}
+
+	@Override
+	public EmployeeDTO saveClientEmployee(EmployeeDTO message)
+			throws SimpleException, FieldException {
+		message.setRoles(new String[0]);
+		return message;
 	}
 
 }

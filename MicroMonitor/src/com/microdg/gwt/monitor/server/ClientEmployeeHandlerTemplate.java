@@ -1,5 +1,6 @@
 package com.microdg.gwt.monitor.server;
 
+import com.microdg.gwt.monitor.shared.FieldException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 
@@ -24,5 +25,7 @@ import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 public interface ClientEmployeeHandlerTemplate {
 
 	EmployeeDTO[] getClientEmployees(Integer clientId) throws SimpleException;
+
+	EmployeeDTO saveClientEmployee(EmployeeDTO message) throws SimpleException, FieldException;
 
 }
