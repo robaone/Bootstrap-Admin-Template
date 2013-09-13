@@ -35,6 +35,8 @@ public class ClientEmployeeHandler implements ClientEmployeeHandlerTemplate {
 			throws SimpleException {
 		EmployeeDTO[] empl = new EmployeeDTO[1];
 		empl[0] = new EmployeeDTO();
+		empl[0].setClientId(clientId);
+		empl[0].setEmployeeId(0);
 		empl[0].setName("First Employee");
 		empl[0].setEmailAddress("email@domain.com");
 		String[] roles = {"Owner","Operator"};
@@ -47,6 +49,19 @@ public class ClientEmployeeHandler implements ClientEmployeeHandlerTemplate {
 			throws SimpleException, FieldException {
 		message.setRoles(new String[0]);
 		return message;
+	}
+
+	@Override
+	public EmployeeDTO getClientEmployee(int employeeId) throws SimpleException {
+		EmployeeDTO[] empl = new EmployeeDTO[1];
+		empl[0] = new EmployeeDTO();
+		empl[0].setName("First Employee");
+		empl[0].setEmployeeId(employeeId);
+		empl[0].setClientId(0);
+		empl[0].setEmailAddress("email@domain.com");
+		String[] roles = {"Owner","Operator"};
+		empl[0].setRoles(roles);
+		return empl[0];
 	}
 
 }

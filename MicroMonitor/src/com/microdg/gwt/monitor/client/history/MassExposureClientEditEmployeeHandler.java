@@ -3,7 +3,7 @@ package com.microdg.gwt.monitor.client.history;
 import com.google.gwt.regexp.shared.RegExp;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.MicroMonitor;
-import com.microdg.gwt.monitor.client.view.ClientEmployeeViewUi;
+import com.microdg.gwt.monitor.client.view.ClientEmployeeEditFormUi;
 import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 import com.robaone.gwt.eventbus.client.ComposeEvent;
 import com.robaone.gwt.eventbus.client.EventBus;
@@ -27,13 +27,15 @@ import com.robaone.gwt.eventbus.client.ObjectChannelEvent;
  * @author Ansel
  *
  */
-public class MassExposureClientEmployeeViewHandler implements
+public class MassExposureClientEditEmployeeHandler implements
 		ApplicationHistoryHandler {
-	String[] parameters;
+
+	private String[] parameters;
+
 	@Override
 	public void handle(String[] parsed) {
 		this.setParameters(parsed);
-		MicroMonitor.dataService.getClientEmployee(this.getEmployeeId(), new AsyncCallback<EmployeeDTO>(){
+		MicroMonitor.dataService.getClientEmployee(getEmployeeId(), new AsyncCallback<EmployeeDTO>(){
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -42,23 +44,23 @@ public class MassExposureClientEmployeeViewHandler implements
 
 			@Override
 			public void onSuccess(EmployeeDTO result) {
-				EventBus.handleObjectEvent(new ObjectChannelEvent(ClientEmployeeViewUi.CLIENTEMPLOYEEVIEWUI,result));
-				EventBus.handleEvent("root-content", ComposeEvent.REPLACE, MicroMonitor.getClientEmployeeView());
+				EventBus.handleObjectEvent(new ObjectChannelEvent(ClientEmployeeEditFormUi.CLIENTEMPLOYEEEDITFORMUI, result));
+				EventBus.handleEvent("root-content", ComposeEvent.REPLACE, MicroMonitor.getClientEmployeeEditForm());
 			}
 			
 		});
-	}
-	
-	protected int getEmployeeId(){
-		return new Integer(this.parameters[3]);
 	}
 
 	private void setParameters(String[] parsed) {
 		this.parameters = parsed;
 	}
 
+	private int getEmployeeId() {
+		return new Integer(this.parameters[3]);
+	}
+
 	public static boolean is(String page) {
-		RegExp p = RegExp.compile("^massexposure[/]clients[/][0-9]+/employee[/][0-9]+$");
+		RegExp p = RegExp.compile("^massexposure[/]clients[/][0-9]+/employee[/][0-9][/]edit$");
 		return p.test(page);
 	}
 

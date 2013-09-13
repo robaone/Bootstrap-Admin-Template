@@ -3,10 +3,13 @@ package com.microdg.gwt.monitor.client.view;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.History;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.InlineLabel;
@@ -93,7 +96,11 @@ public class ClientViewUi extends EventDrivenComposite implements HasText {
 			rowContents[0] = new Label(message[i].getName());
 			rowContents[1] = new Label(message[i].getEmailAddress());
 			rowContents[2] = new Label(formatRoles(message[i].getRoles()));
-			rowContents[3] = new Button("View");
+			Anchor view = new Anchor("View");
+			final EmployeeDTO employee = message[i];
+			view.setHref("#massexposure/clients/"+employee.getClientId()+"/employee/"+employee.getEmployeeId());
+			view.setStyleName("btn");
+			rowContents[3] = view;
 			row.setContent(rowContents);
 			employeeList.appendRow(row);
 		}

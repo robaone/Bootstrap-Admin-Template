@@ -56,16 +56,25 @@ public class ClientEmployeeEditFormUi extends EventDrivenComposite {
 	@UiField TextBox employeeName;
 	@UiField TextBox employeeEmailAddr;
 	private ClientDTO client;
+	private EmployeeDTO employee;
 
 
 	@UiHandler("button")
 	void onClick(ClickEvent e) {
-		EmployeeDTO employee = new EmployeeDTO();
-		employee.setClientId(this.getClient().getClientId());
+		EmployeeDTO employee = getEmployee();
 		employee.setName(this.employeeName.getText());
 		employee.setEmailAddress(this.employeeEmailAddr.getText());
 		employee.setRoles(this.getRoles());
 		EventBus.handleObjectEvent(new ObjectChannelEvent("client:save-employee",employee));
+	}
+
+
+	private EmployeeDTO getEmployee() {
+		if(employee == null){
+			return new EmployeeDTO();
+		}else{
+			return employee;
+		}
 	}
 
 
@@ -118,7 +127,7 @@ public class ClientEmployeeEditFormUi extends EventDrivenComposite {
 	private void setEmployee(EmployeeDTO message) {
 		this.employeeName.setText(message.getName());
 		this.employeeEmailAddr.setText(message.getEmailAddress());
-		
+		this.employee = message;
 	}
 
 }

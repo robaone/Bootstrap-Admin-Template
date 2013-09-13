@@ -26,6 +26,7 @@ public class EmployeeDTO implements IsSerializable {
 	private String emailAddress;
 	private String[] roles;
 	private Integer clientId;
+	private Integer employeeId;
 	public String getName() {
 		return this.name;
 	}
@@ -49,5 +50,11 @@ public class EmployeeDTO implements IsSerializable {
 	}
 	public void setClientId(Integer id){
 		this.clientId = id;
+	}
+	public Integer getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(Integer id){
+		this.employeeId = id;
 	}
 }

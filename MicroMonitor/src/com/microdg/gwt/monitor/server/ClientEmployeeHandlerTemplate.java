@@ -28,4 +28,6 @@ public interface ClientEmployeeHandlerTemplate {
 
 	EmployeeDTO saveClientEmployee(EmployeeDTO message) throws SimpleException, FieldException;
 
+	EmployeeDTO getClientEmployee(int employeeId) throws SimpleException;
+
 }

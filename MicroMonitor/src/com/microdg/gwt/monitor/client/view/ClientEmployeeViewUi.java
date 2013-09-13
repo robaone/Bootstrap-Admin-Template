@@ -6,11 +6,13 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
+import com.microdg.gwt.monitor.shared.dto.EmployeeDTO;
 import com.robaone.gwt.eventbus.client.EventDrivenComposite;
 
 /**
@@ -48,10 +50,16 @@ public class ClientEmployeeViewUi extends EventDrivenComposite {
 
 	@UiField
 	Button button;
+	private EmployeeDTO employee;
 
 	@UiHandler("button")
 	void onClick(ClickEvent e) {
-		Window.alert("Hello!");
+		History.newItem("massexposure/clients/"+this.getEmployee().getClientId()+"/employee/"+this.getEmployee().getEmployeeId()+"/edit");
+	}
+	
+	@UiHandler("close")
+	void onClose(ClickEvent e) {
+		History.newItem("massexposure/clients/"+this.getEmployee().getClientId());
 	}
 
 	@Override
@@ -74,8 +82,15 @@ public class ClientEmployeeViewUi extends EventDrivenComposite {
 
 	@Override
 	public void handleObjectEvent(Object message) {
-		// TODO Auto-generated method stub
-		
+		if(message instanceof EmployeeDTO){
+			this.setEmployee((EmployeeDTO)message);
+		}
 	}
 
+	private void setEmployee(EmployeeDTO message) {
+		this.employee = message;
+	}
+	protected EmployeeDTO getEmployee(){
+		return this.employee;
+	}
 }

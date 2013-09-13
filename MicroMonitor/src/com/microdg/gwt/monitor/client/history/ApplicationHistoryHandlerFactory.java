@@ -49,6 +49,8 @@ public class ApplicationHistoryHandlerFactory {
 					return new MassExposureClientEmployeeViewHandler();
 				}else if(MassExposureClientNewEmployeeHandler.is(page)){
 					return new MassExposureClientNewEmployeeHandler();
+				}else if(MassExposureClientEditEmployeeHandler.is(page)){
+					return new MassExposureClientEditEmployeeHandler();
 				}else if(MassExposureSiteViewHandler.is(page)){
 					return new MassExposureSiteViewHandler();
 				}else{

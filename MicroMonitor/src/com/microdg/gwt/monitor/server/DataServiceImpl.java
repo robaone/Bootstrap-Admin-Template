@@ -105,5 +105,10 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 		ClientEmployeeHandlerTemplate handler = HandlerFactory.newClientEmployeeHandler(getSessionDataObject());
 		return handler.saveClientEmployee(message);
 	}
+	@Override
+	public EmployeeDTO getClientEmployee(int employeeId) throws SimpleException {
+		ClientEmployeeHandlerTemplate handler = HandlerFactory.newClientEmployeeHandler(getSessionDataObject());
+		return handler.getClientEmployee(employeeId);
+	}
 
 }
