@@ -65,6 +65,7 @@ public class ClientEmployeeEditFormUi extends EventDrivenComposite {
 		employee.setName(this.employeeName.getText());
 		employee.setEmailAddress(this.employeeEmailAddr.getText());
 		employee.setRoles(this.getRoles());
+		employee.setClientId(client.getClientId());
 		EventBus.handleObjectEvent(new ObjectChannelEvent("client:save-employee",employee));
 	}
 
