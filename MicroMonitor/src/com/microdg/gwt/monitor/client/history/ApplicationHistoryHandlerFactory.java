@@ -1,8 +1,6 @@
 package com.microdg.gwt.monitor.client.history;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.microdg.gwt.monitor.client.MicroMonitor;
-import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 
 /**
  * <pre>   Copyright 2013 Ansel Robateau
@@ -53,6 +51,8 @@ public class ApplicationHistoryHandlerFactory {
 					return new MassExposureClientEditEmployeeHandler();
 				}else if(MassExposureSiteViewHandler.is(page)){
 					return new MassExposureSiteViewHandler();
+				}else if(Error404Handler.is(page)){
+					return new Error404Handler();
 				}else{
 					throw new Exception("No match found");
 				}

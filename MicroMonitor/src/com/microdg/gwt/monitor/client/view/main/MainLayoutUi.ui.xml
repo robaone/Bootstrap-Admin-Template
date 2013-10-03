@@ -167,6 +167,28 @@
 								</li>
 							</ul>
 						</li>
+						<li class="accordion-group">
+							<a data-parent="#menu" data-toggle="collapse" class="accordion-toggle"
+								data-target="#menuitem2-nav">
+								<i class="icon-ellipsis-horizontal icon-large"></i>
+								Forms
+								<span class="label label-inverse pull-right">2</span>
+							</a>
+							<ul class="collapse" id="menuitem2-nav">
+								<li>
+									<a href="#forms/1">
+										<i class="icon-angle-right"></i>
+										Form1
+									</a>
+								</li>
+								<li>
+									<a href="#forms/2">
+										<i class="icon-angle-right"></i>
+										Form2
+									</a>
+								</li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 				<!-- /#left -->

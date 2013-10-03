@@ -3,6 +3,7 @@ package com.microdg.gwt.monitor.client.rpc;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.microdg.gwt.monitor.shared.FieldException;
+import com.microdg.gwt.monitor.shared.LoginRequiredException;
 import com.microdg.gwt.monitor.shared.SimpleException;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
 import com.microdg.gwt.monitor.shared.dto.ClientDTO;
@@ -21,28 +22,28 @@ public interface DataService extends RemoteService {
 
 	AppSessionDataDTO getSessionData() throws SimpleException;
 
-	SiteDTO createNewSite(String sitename) throws SimpleException, FieldException;
+	SiteDTO createNewSite(String sitename) throws SimpleException, FieldException, LoginRequiredException;
 
-	SiteDTO getSiteInfo(int id);
+	SiteDTO getSiteInfo(int id) throws SimpleException, LoginRequiredException;
 
-	KeywordDTO saveSiteKeyword(KeywordDTO message) throws SimpleException, FieldException;
+	KeywordDTO saveSiteKeyword(KeywordDTO message) throws SimpleException, FieldException, LoginRequiredException;
 
-	KeywordDTO[] getSiteKeywords(int id);
+	KeywordDTO[] getSiteKeywords(int id) throws SimpleException, LoginRequiredException;
 
-	ServiceAreaDTO[] getSiteServiceAreas(int id);
+	ServiceAreaDTO[] getSiteServiceAreas(int id) throws SimpleException, LoginRequiredException;
 
 	boolean recoverPassword(String email) throws SimpleException, FieldException;
 
-	ClientDTO[] getClients() throws SimpleException;
+	ClientDTO[] getClients() throws SimpleException, LoginRequiredException;
 
-	ClientDTO saveClient(ClientDTO message) throws SimpleException, FieldException;
+	ClientDTO saveClient(ClientDTO message) throws SimpleException, FieldException, LoginRequiredException;
 
-	ClientDTO getClient(Integer clientId) throws SimpleException;
+	ClientDTO getClient(Integer clientId) throws SimpleException, LoginRequiredException;
 
-	EmployeeDTO[] getClientEmployees(Integer clientId) throws SimpleException;
+	EmployeeDTO[] getClientEmployees(Integer clientId) throws SimpleException, LoginRequiredException;
 
-	EmployeeDTO saveClientEmployee(EmployeeDTO message) throws SimpleException, FieldException;
+	EmployeeDTO saveClientEmployee(EmployeeDTO message) throws SimpleException, FieldException, LoginRequiredException;
 
-	EmployeeDTO getClientEmployee(int employeeId) throws SimpleException;
+	EmployeeDTO getClientEmployee(int employeeId) throws SimpleException, LoginRequiredException;
 
 }

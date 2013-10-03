@@ -54,8 +54,7 @@ ValueChangeHandler<String> {
 
 						@Override
 						public void onFailure(Throwable caught) {
-							// TODO Auto-generated method stub
-							
+							History.newItem("#error404");
 						}
 
 						@Override
@@ -66,7 +65,7 @@ ValueChangeHandler<String> {
 						
 					});
 				}else{
-					System.out.println("Page, "+parsed[0]+" not found");
+					History.newItem("error404");
 				}
 			}
 		}

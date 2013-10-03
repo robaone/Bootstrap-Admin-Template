@@ -9,6 +9,7 @@ import com.microdg.gwt.monitor.client.view.ClientEmployeeEditFormUi;
 import com.microdg.gwt.monitor.client.view.ClientEmployeeViewUi;
 import com.microdg.gwt.monitor.client.view.ClientViewUi;
 import com.microdg.gwt.monitor.client.view.ClientsUi;
+import com.microdg.gwt.monitor.client.view.Error404Ui;
 import com.microdg.gwt.monitor.client.view.login.LoginUi;
 import com.microdg.gwt.monitor.client.view.main.MainLayoutUi;
 import com.microdg.gwt.monitor.shared.dto.AppSessionDataDTO;
@@ -50,6 +51,8 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	private static ClientEmployeeEditFormUi clientEmployeeEditForm;
 	private static ClientViewUi clientView;
 	private static AppSessionDataDTO sessionData;
+
+	private static Error404Ui error404page;
 	@SuppressWarnings("unused")
 	private AppController controller;
 	public void onModuleLoad() {
@@ -163,5 +166,11 @@ public class MicroMonitor extends EventDrivenController implements EntryPoint {
 	}
 	public static void setClientEmployeeEditForm(ClientEmployeeEditFormUi clientEmployeeEditForm) {
 		MicroMonitor.clientEmployeeEditForm = clientEmployeeEditForm;
+	}
+	public static Error404Ui getError404Page() {
+		if(MicroMonitor.error404page == null){
+			MicroMonitor.error404page = new Error404Ui();
+		}
+		return error404page;
 	}
 }
