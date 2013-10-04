@@ -54,7 +54,12 @@ ValueChangeHandler<String> {
 
 						@Override
 						public void onFailure(Throwable caught) {
-							History.newItem("#error404");
+							String[] page = {"error404"};
+							try {
+								handle(page);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
 						}
 
 						@Override
@@ -65,7 +70,12 @@ ValueChangeHandler<String> {
 						
 					});
 				}else{
-					History.newItem("error404");
+					String[] page = {"error404"};
+					try {
+						handle(page);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
 				}
 			}
 		}

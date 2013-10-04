@@ -1,6 +1,7 @@
 package com.microdg.gwt.monitor.client.history;
 
 import com.microdg.gwt.monitor.client.MicroMonitor;
+import com.microdg.gwt.monitor.client.history.forms.FormsHandler;
 
 /**
  * <pre>   Copyright 2013 Ansel Robateau
@@ -51,6 +52,8 @@ public class ApplicationHistoryHandlerFactory {
 					return new MassExposureClientEditEmployeeHandler();
 				}else if(MassExposureSiteViewHandler.is(page)){
 					return new MassExposureSiteViewHandler();
+				}else if(FormsHandler.is(page)){
+					return new FormsHandler();
 				}else if(Error404Handler.is(page)){
 					return new Error404Handler();
 				}else{
